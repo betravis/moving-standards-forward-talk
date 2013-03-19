@@ -18,6 +18,8 @@
         <!--<link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">-->
         <link rel='stylesheet' href='css/theme/bear.css'>
 
+        <link rel='stylesheet' href='font-awesome/font-awesome.css'>
+
         <!-- For syntax highlighting -->
         <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
 
@@ -42,7 +44,7 @@
                     <h1>Moving Web Standards Forward, Faster</h1>
                     <!--<h3>or, a Wish for Web Standards that Work</h3>-->
                     <p>
-                        <small>Created by Bear Travis / <a href="http://twitter.com/bear_travis">@bear_travis</a></small>
+                        <small><i class='icon-github-alt'></i><a href='http://github.com/betravis'>betravis</a> / <i class='icon-twitter'></i><a href="http://twitter.com/bear_travis">@bear_travis</a></small>
                     </p>
                 </section>
 
@@ -236,10 +238,144 @@
                         (how big are regions and exclusions)
                         (originally proposed as one module)
                         (new ideas that come up are spun off)
+                        (css page templates, breaks, clipping shapes)
                     </section>
                 </section>
 
+<!-- 6. Complexity limit -->
+                <section>
+                    <section><h2>How can we build standards faster?</h2></section>
+                    <section><h2>How fast can we build standards?</h2></section>
+                    <section><h2>Each module is part of a larger toolset</h2></section>
 
+                    <section>
+                        <h2>Regions and Exclusions</h2>
+                        (Example -- RANE magazine)
+                    </section>
+
+                    <section>
+<pre><code>.region { height: auto; }
+.content { shape-inside: circle(...); }</code></pre>
+                    </section>
+
+                    <section>
+<pre><code>.region { shape-inside: rectangle(...); }
+.content { shape-inside: circle(...); }</code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Regions, Exclusions, and</h2>
+                        <ul>
+                            <li>Web Components</li>
+                            <li>Multicolumn</li>
+                            <li>FlexBox</li>
+                            <li>Grid</li>
+                        </ul>
+                    </section>
+                </section>
+
+<!-- 7. You don't have to wait on the spec -->
+                <section>
+                    <section>
+                        <h2>The web isn't standing still</h2>
+                    </section>
+                    <section>
+                        code markup
+                        code result
+                    </section>
+                </section>
+
+<!-- 8. Polyfills -->
+                <section>
+                    <section>
+                        <h2>Polyfills</h2>
+                        <h3>fake the functionality of the future, today</h3>
+                    </section>
+                    <section>
+                        <h2>Support older browsers</h2>
+                    </section>
+                    <section>
+                        (code example, including regions polyfill?)
+                    </section>
+                    <section>
+                        <h2>Support newer features</h2>
+                        <ul>
+                            <li>FlexBox</li>
+                            <li>Regions</li>
+                            <li>Web Components</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>Polyfills work now</li>
+                            <li>Across browsers</li>
+                            <li>Can be replaced by native</li>
+                            <li>Test out a new feature today</li>
+                        </ul>
+                    </section>
+                    <section>
+                        (codepen rodeo)
+                    </section>
+                    <section>
+                        <h2>But</h2>
+                        <ul>
+                            <li>Polyfills are a workaround</li>
+                            <li>Feature specs are likely to change</li>
+                            <li>Polyfills can be non-performant</li>
+                        </ul>
+                    </section>
+                </section>
+
+<!-- 9. Native -->
+                <section>
+                    <section><h2>Sometimes you just need native</h2></section>
+                    <section>
+                        <h2>Native implementations</h2>
+                        <ul>
+                            <li>Prove a feature can be done</li>
+                            <li>in a performant manner</li>
+                            <li>just like any other web feature</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>But</h2>
+                        <ul>
+                            <li>You are tied to a specific browser,</li>
+                            <li>and its release schedule,</li>
+                            <li>and a higher degree of finish</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>How do we get early feedback?</h2>
+                    </section>
+                    <section>
+                        <h2>Release early, and often</h2>
+                        (release test builds -- all major browsers)
+                        (Canary -- updates almost daily, runs in parallel)
+                        (faster release cycle)
+                    </section>
+                    <section>
+                        <h2>Anyone can test out new browsers</h2>
+                    </section>
+                </section>
+
+<!-- 10. Living Standards -->
+                <section>
+                    <section>
+                        (little sappy, let's make it more factual)
+                        <h2>Standards bodies help guide the web forward</h2>
+                    </section>
+                    <section>
+                        <h2>But, the web is constantly changing</h2>
+                    </section>
+                    <section>
+                        <h2>Your toolbox is constantly changing</h2>
+                    </section>
+                    <section>
+                        <h2>But you can also help shape it</h2>
+                    </section>
+                </section>
+                
             </div>
 
         </div>

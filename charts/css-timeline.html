@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src='http://d3js.org/d3.v3.min.js' type='text/javascript'></script>
+    <style>
+    .chart circle {
+    stroke: white;
+    fill: steelblue;
+    }
+    .chart text {
+      font-family: 'Adobe Clean', sans-serif;
+    }
+    </style>
+    <script>
+        var data = [
+  { date: 1990, event: 'First Webpage' },
+  { date: 1994, event: 'W3C Formed' },
+  { date: 1995, event: 'CSS1 FPWD' },
+  { date: 1996, event: 'CSS1 Rec' },
+  { date: 1997, event: 'CSS2 FPWD' },
+  { date: 1998, event: 'CSS2 Rec' },
+  { date: 2000, event: 'CSS3 Roadmap' },
+  { date: 2002, event: 'CSS2.1 WD' },
+  { date: 2011, event: 'CSS2.1 Rec' }
+  ];
+
+var radius = 40;
+var width = 800;
+var height = 600;
+var padding = 80;
+
+function date(d) { return d.date; }
+function event(d) { return d.event; }
+
+window.onload = function() {
+var chart = d3.select('body').append('svg')
+    .attr('class', 'chart')
+    .attr('width', width + 2 * padding)
+    .attr('height', height + 2 * padding)
+    .append('g')
+    .attr('transform', 'translate(' + padding + ', ' + padding + ')');
+
+var x = d3.scale.linear()
+    .domain([d3.min(data, date), d3.max(data, date)])
+    .range([0, width]);
+
+chart.selectAll('circle')
+  .data(data, date)
+  .enter().append('circle')
+  .attr('cy', height / 2)
+  .attr('cx', function(d) { return x(date(d)); })
+  .attr('r', radius)
+  .attr('height', radius);
+
+chart.selectAll('text')
+  .data(data, event)
+  .enter().append('text')
+  .attr('x', function(d) { return x(date(d)); })
+  .attr('y', function(d) { return height / 2 - radius; })
+  .attr('dy', -3)
+  .attr('text-anchor', 'middle')
+  .text(event);
+}
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
