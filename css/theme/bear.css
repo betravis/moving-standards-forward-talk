@@ -14,8 +14,20 @@
   background-color: #a49480;
 }
 
+.inverse {
+  color: #242729;
+  background-color: #a49480;
+}
+
 .reveal code, .reveal .monospace {
   font-family: "Source Code Pro", monospace;
+  white-space: pre;
+}
+
+.reveal .show-container {
+  border: 2px solid #e4dfd9;
+  padding: .5em;
+  display: inline-block;
 }
 
 .reveal pre {
@@ -290,6 +302,47 @@ body {
 
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
   line-height: 1.1em;
+}
+
+.reveal .comment {
+  margin: 1em;
+}
+.reveal .comment > * {
+  display: inline-block;
+}
+.reveal .comment .icon {
+  vertical-align: middle;
+  font-size: 3em;
+}
+.reveal .comment .content {
+  margin-left: 1em;
+  margin-right: 3em;
+  position: relative;
+  border-radius: 1em;
+  padding: 1em;
+  min-height: 3em;
+  background-color: #a49480;
+  color: #242729;
+}
+.reveal .comment .content:before {
+  position: absolute;
+  width: 0;
+  height: 0;
+  right: 100%;
+  border: 1em solid transparent;
+  border-left-width: 0;
+  border-right-color: #a49480;
+  content: ' ';
+}
+
+.comment.right .content {
+  margin-left: 3em;
+  margin-right: 1em;
+}
+.comment.right .content:before {
+  left: 100%;
+  border-left: 1em solid #a49480;
+  border-right-width: 0;
 }
 
 .reveal a.no-roll {

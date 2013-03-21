@@ -15,10 +15,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
         <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
-        <!--<link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">-->
-        <link rel='stylesheet' href='css/theme/bear.css'>
 
         <link rel='stylesheet' href='font-awesome/font-awesome.css'>
+
+        <!--<link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">-->
+        <link rel='stylesheet' href='css/theme/bear.css'>
 
         <!-- For syntax highlighting -->
         <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
@@ -31,6 +32,23 @@
         <!--[if lt IE 9]>
         <script src="lib/js/html5shiv.js"></script>
         <![endif]-->
+
+        <style>
+        .clip {
+            -webkit-clip-path: polygon(0 50%, 20% 0, 100% 0, 100% 50%, 80% 100%, 0 100%);
+            clip-path: polygon(0 50%, 20% 0, 100% 0, 100% 50%, 80% 100%, 0 100%);
+        }
+        .reveal .regex {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .regex.left, .regex.middle {
+            text-align: left;
+        }
+        .regex.right {
+            text-align: right;
+        }
+        </style>
     </head>
 
     <body>
@@ -44,41 +62,87 @@
                     <h1>Moving Web Standards Forward, Faster</h1>
                     <!--<h3>or, a Wish for Web Standards that Work</h3>-->
                     <p>
-                        <small><i class='icon-github-alt'></i><a href='http://github.com/betravis'>betravis</a> / <i class='icon-twitter'></i><a href="http://twitter.com/bear_travis">@bear_travis</a></small>
+                        <i class='icon-github-alt'></i><a href='http://github.com/betravis'>betravis</a> / <i class='icon-twitter'></i><a href="http://twitter.com/bear_travis">bear_travis</a>
                     </p>
+                    <aside class='notes'>
+                        * Hello there, I'm Bear Travis
+                        * You can find me on github, where I've posted the slides
+                        * Or on twitter, where you can ask any questions you might have
+                        * Today, I would like to talk to you a little bit about how web standards get made
+                        * And developments that are helping them move forward faster than ever.
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>About Me</h2>
+                    (img of Web Engine team)
+                    <aside class='notes'>
+                        * I work on the Web Engine team at Adobe
+                        * We help develop and implement web standards
+                    </aside>
                 </section>
 
 <!-- 1. Regions and Exclusions - History & Overview -->
                 <section>
                     <section>
                         <h2>Text Layout Fundamentals</h2>
+                        <aside class='notes'>
+                            * Two of the specifications Adobe is working on, Regions and Exclusions, deal with making complicated layouts on the web easier.
+                            * I figured it might be helpful to provide a framework for this discussion in terms of historical text layout.
+                        </aside>
                     </section>
                     <section>
-                        (herculaneum scroll image)
+                        <img class='plain' src='resources/herculaneum.png' alt='scroll' />
+                        <aside class='notes'>
+                            * At it's simplest, text fills a line, then moves on to the next line
+                            * It fills up a rectangular space
+                            * In English, a line runs from left to right, and lines are placed from top to bottom
+                            * You need enough scroll area to fit the content
+                        </aside>
                     </section>
                     <section>
-                        (page with columns &amp; exclusions)
+                        <img class='plain' src='resources/illuminated-manuscript.jpg' alt='illuminated manuscript' />
+                        <aside class='notes'>
+                            * As content grows longer, authors may begin to tinker with how it lays out.
+                            * For example, this illuminated manuscript runs text through two columns
+                            * And avoids this fish-shaped area in the center
+                        </aside>
                     </section>
                     <section>
-                        (page with codex)
+                        <img class='plain' src='resources/codex.jpg' alt='codex' />
+                        <aside class='notes'>
+                            * Eventually, as the page size becomes unwieldy, you can break it up across multiple pages
+                            * Into a book
+                        </aside>
                     </section>
                     <section>
-                        (modern layout example)
+                        <img class='plain' src='resources/beverage_andregraciotti.jpg' alt='magazine layout' />
+                        <small>From <a href='http://www.flickr.com/photos/agraciotti/6800788084/'>Andr&eacute; Graciotti</a></small>
+                        <aside class='notes'>
+                            * These principles are still in use today
+                            * In this magazine layout, we can see article content flowing through multiple areas,
+                            * avoiding multiple complex shapes
+                            * And, of course, paged through a magazine
+                        </aside>
                     </section>
-                    <aside class="notes">
-                        Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-                    </aside>
                 </section>
 
                 <section>
                     <section>
                         <h2>On the Web</h2>
+                        <aside class='notes'>
+                            * The web started off pretty heavy on the scroll-model.
+                            * Layout content within one big rectangle, and make that rectangle as long as it needed to be to fit the content.
+                            * But, we're starting to see some experiments with with different layouts.
+                        </aside>
                     </section>
                     <section>
-                        (circular shape insides)
+                        <img class='plain' src='resources/tvsafety.png' alt='circular content' />
+                        <small>Source: <a href='http://tvsafety.org'>tvsafety.org</a></small>
                     </section>
                     <section>
-                        (regions breaking content -> snowfall)
+                        <img class='plain' src='resources/thegreatdiscontent.png' />
+                        <small>Source: <a href='http://thegreatdiscontent.com'>The Great Discontent</a></small>
                     </section>
                     <section>
                         <h2>but it's still hard</h2>
@@ -88,24 +152,61 @@
                 <section>
                     <section>
                         <h2>Regions</h2>
+                        <aside class='notes'>
+                            * We're hoping to make this easier with regions and exclusions.
+                            * Regions is a feature that allows you to define areas to flow content through.
+                        </aside>
                     </section>
                     <section>
-                        (img of regions)
+                        <img class='plain' src='resources/css-regions.png' />
+                        <aside class='notes'>
+                            * In this diagram, you can see two pieces of content flowing through two different sets of regions.
+                            * The first set of content flows through regions 1, 2, 3, and 4.
+                            * The second, regions a and b.
+                        </aside>
                     </section>
                     <section>
-                        (code example)
+<pre><code class='css'><!--
+-->.content { flow-into: story-flow; }
+.region  { flow-from: story-flow; }<!--
+--></code></pre>
+                        <aside class='notes'>
+                            * The markup would look something like this.
+                            * We take some content, and put it into a flow.
+                            * And then we specify that our regions should lay out content from that flow.
+                        </aside>
                     </section>
                 </section>
 
                 <section>
                     <section>
                         <h2>Exclusions</h2>
+                        <aside class='notes'>
+                            * While regions specify containers to flow content through,
+                            * Exclusions specify how you can customize the shapes of those containers
+                            * As content wraps inside and around them.
+                        </aside>
                     </section>
                     <section>
-                        (img of exclusions)
+                        <img class='plain' src='resources/css-exclusions.png' />
+                        <aside class='notes'>
+                            * For example, we can wrap content inside and around a circular shape.
+                            * Similar to what we saw on the tvsafety site.
+                        </aside>
                     </section>
                     <section>
-                        (code example)
+<pre><code class='css'><!--
+-->.circle {
+    wrap-flow: end;
+    shape-outside: circle(50%, 50%, 50%);
+    shape-inside: outside-shape;
+}<!--
+--></code></pre>
+                        <aside class='notes'>
+                            * We specify that we want content to wrap on the end (or right) side
+                            * Respecting a circle that is centered at 50%, 50%, with a 50% radius
+                            * And content inside the block should respect the same shape as content outside.
+                        </aside>
                     </section>
                 </section>
 
@@ -113,6 +214,10 @@
                 <section>
                     <section>
                         <h2>What is a Web Standard?</h2>
+                        <aside class='notes'>
+                            * We are working towards making these more web standards
+                            * But, as a phrase that is thrown around alot, you may be wondering what exactly, they are.
+                        </aside>
                     </section>
 
                     <section>
@@ -120,42 +225,103 @@
                             Web standards are technologies, established by the W3C and other standards bodies, that are used to create and interpret web-based content. These technologies are designed to future-proof documents published on the Web and to make those documents accessible to as many people and devices as possible.
                         </blockquote>
                         <p><small>Roger Johansson</small></p>
+                        <!-- http://www.456bereastreet.com/lab/developing_with_web_standards/webstandards/ -->
+                        <aside class='notes'>
+                            * Roger Johansson provided this definition (read)
+                            * I think this captures pretty well what a standard should strive to be
+                            * Standards are used to transform markup into websites
+                            * That will work as well today as they will 5 years from now
+                            * And, due to the nature of the web, will be accessible to many different people using many different devices.
+                        </aside>
                     </section>
 
                     <section>
-                        <h2>W3C Recommendations</h2>
                         <blockquote>
                             W3C publishes documents that define Web technologies. These documents follow a process designed to promote consensus, fairness, public accountability, and quality. At the end of this process, W3C publishes Recommendations, which are considered Web standards.
                         </blockquote>
+                        <p><small>W3C FAQ</small></p>
+                        <!-- http://www.w3.org/standards/faq.html -->
+                        <aside class='notes'>
+                            * Then the question becomes how do we get there.
+                            * The W3C has a more focused, technical definition.
+                            * They issue recommendations that have undergone a formal review process, and
+                            * Those recommendations are web standards.
+                        </aside>
                     </section>
 
                     <section>
                         <h2>The W3C Process</h2>
-                        <p>(Working Draft -&gt; Candidate Recommendation -&gt; Recommendation)</p>
+                        <p>Working Draft</p>
+                        <p><i class='icon-arrow-down'></i></p>
+                        <p>Candidate Recommendation</p>
+                        <p><i class='icon-arrow-down'></i></p>
+                        <p>Recommendation</p>
+                        <aside class='notes'>
+                            * The W3C recommendation process takes a specification through three major steps
+                            * A 'working draft' stage where the specification is available for public comment and can undergo significant revisions.
+                            * A 'candidate recommendation' stage where the specification may only undergo minor revisions, and must be implemented by at least two browsers to prove itself.
+                            * A 'recommendation' stage, where the specification has been finalized.
+                        </aside>
                     </section>
 
                     <section>
                         <h2>Standards in the Wild</h2>
-                        <p>(ribbon of browsers?)</p>
+                        <div class='ribbon'>
+                            <img src='resources/chrome-512.png' />
+                            <img src='resources/firefox-512.png' />
+                            <img src='resources/ie-256.png' />
+                            <img src='resources/opera-512.png' />
+                            <img src='resources/safari-512.png' />
+                        </div>
+                        <aside class='notes'>
+                            * If we go back to Johansson's fuzzier definition, what we really want
+                            * Is for everyone to agree on a meaning, largely meaning the web browsers
+                            * At the end of the day, though, what you want is to be able to use a feature
+                            * And that means a feature being reliably implemented across browsers
+                        </aside>
                     </section>
 
                     <section>
-                        <h2>Say (markup)</h2>
+                        <h2>Say</h2>
+<pre><code class='css'><!--
+-->.circle {
+    wrap-flow: end;
+    shape-outside: circle(50%, 50%, 50%);
+    shape-inside: outside-shape;
+}<!--
+--></code></pre>
                     </section>
 
                     <section>
-                        <h2>Get (webpage)</h2>
-                        (what it all boils down to, can you reliably use it across browsers)
+                        <h2>Get</h2>
+                        <img src='resources/css-exclusions.png' class='plain' alt='exclusions' />
                     </section>
 
                     <section>
-                        <h2>All together now</h2>
-                        (a feature may become a de facto standard before it is a rec)
+                        <h2>De Facto Standards</h2>
                         <ul>
-                            <li class='xfragment'>Media Queries <span class='xfragment'>Rec 2012.06.19</span></li>
-                            <li class='xfragment'>Gradients - CSS Image Values and Replaced Content <span class='xfragment'>CR 2012.04.17</span></li>
-                            <li class='xfragment'>Border Radius - CSS Backgrounds and Borders <span class='xfragment'>CR 2012.07.24</span></li>
+                            <li class='fragment'>
+                                Media Queries <div class='fragment'>(Rec 2012.06.19)</div>
+                            </li>
+                            <li class='fragment'>
+                                Gradients
+                                <div class='fragment'>
+                                    <p>CSS Image Values and Replaced Content</p>
+                                    <p>(CR 2012.04.17)</p>
+                                </div>
+                            </li>
+                            <li class='fragment'>
+                                Border Radius
+                                <div class='fragment'>
+                                    <p>CSS Backgrounds and Borders</p>
+                                    <p>(CR 2012.07.24)</p>
+                                </div>
+                            </li>
                         </ul>
+                        <aside class='notes'>
+                            * Because W3C recommendations can take time to finalize, features may standardize across browsers before the recommendation process has finished.
+                            * Some features may even originate with the browsers, and eventually be standardized by the W3C.
+                        </aside>
                     </section>
                 </section>
                 
@@ -163,32 +329,46 @@
                 <section>
                     <section>
                         <h2>A Brief History</h2>
+                        <aside class='notes'>
+                            * The specification process has historically taken longer to finalize with each version of CSS.
+                            * Here's a brief history.
+                        </aside>
                     </section>
 
                     <section>
                         <ul>
-                            <li>1990/91 First web page &amp; web browser</li>
+                            <li>1990 First web page &amp; web browser</li>
                             <li>1994 The W3C is formed ot help shape standards on the web</li>
-                            <li>1995 CSS1, First public working draft</li>
-                            <li>1996 CSS1, Recommendation</li>
-                            <li>1997 CSS2, First public working draft</li>
-                            <li>1998 CSS2, Recommendation</li>
-                            <li>2000 CSS3 Roadmap is published</li>
+                            <li>1995 CSS1 First public working draft</li>
+                            <li>1996 CSS1 Recommendation</li>
+                            <li>1997 CSS2 First public working draft</li>
+                            <li>1998 CSS2 Recommendation</li>
+                            <li>2000 CSS3 Roadmap</li>
                             <li>2002 CSS2 Revision 1 Working draft</li>
                             <li>2011 CSS2 Revision 1 Recommendation</li>
                         </ul>
-                        (a data visualization here would be super cool)
+                        <!--(a data visualization here would be super cool)-->
+                        <aside class='notes'>
+                            * Read timeline
+                        </aside>
                     </section>
 
                     <section>
                         <h2>CSS 2.1</h2>
                         <ul>
-                            <li>CSS 2 become a recommendation before there was a CR stage</li>
-                            <li>Aligning specification with implementations</li>
-                            <li>Refining parts that were implemented</li>
-                            <li>Removing parts that were not</li>
-                            <li>Including material not in the spec that had become part of the general web</li>
+                            <li>CSS2 lacked a Candidate Recommendation phase</li>
+                            <li>Specification and implementations differed</li>
+                            <li>Some material was removed</li>
+                            <li>Some material was added</li>
                         </ul>
+                        <aside class='notes'>
+                            * The original plan was to move from CSS2 to CSS3
+                            * But, as the errata list grew for CSS2, the W3C decided to just create a revision
+                            * There was no CR phase when CSS2 became a Recommendation, and therefore
+                            * The implementability was not as thoroughly tested
+                            * Browsers differed from the specification, and 'standards' needed to be what people could use on the web
+                            * CSS2.1 aligned the specification and implementation, but it was a long process
+                        </aside>
                     </section>
                 </section>
 
@@ -196,12 +376,26 @@
                 <section>
                     <section>
                         <h2>Standards synthesize specification &amp; implementation</h2>
+                        <aside class='notes'>
+                            * Standards are really about evolving browsers and specifications together
+                            * If browsers get off track, you may wind up generating tons of browser-specific hacks to get an effect.
+                            * If specifications get off track, you may wind up with a document that no one implements.
+                        </aside>
                     </section>
                     <section>
                         <h2>The W3C helps guide this process</h2>
+                        <aside class='notes'>
+                            * The W3C is a body that helps guide this
+                            * With the CR stage, it allows an opportunity for browsers to grow alongside specifications.
+                            * It has the odd role of both documenting behaviors today, and brainstorming ideas for tomorrow.
+                        </aside>
                     </section>
                     <section>
-                        <p>regions and exclusions, how they're moving along?</p>
+                        <h2>Regions &amp; Exclusions</h2>
+                        <ul>
+                            <li class='fragment'>Are currently in the Working Draft stage</li>
+                            <li class='fragment'>with experimental implementations in IE / WebKit</li>
+                        </ul>
                     </section>
                 </section>
 
@@ -209,36 +403,69 @@
                 <section>
                     <section>
                         <h2>How can we build standards faster?</h2>
+                        <aside class='notes'>
+                            * So how can we make sure standards move forward faster?
+                        </aside>
                     </section>
 
                     <section>
                         <h2>Complexity</h2>
                         <ul>
-                            <li class='xhidden'>CSS 1 - 24,630 words</li>
-                            <li class='xhidden'>CSS 2 - 92,050 words</li>
-                            <li class='xhidden'>CSS 2.1 - 140,396 words</li>
-                            <li class='xhidden'>CSS 3 - 391,611 words</li>
+                            <li class='fragment'>CSS 1 - 24,630 words</li>
+                            <li class='fragment'>CSS 2 - 92,050 words</li>
+                            <li class='fragment'>CSS 2.1 - 140,396 words</li>
+                            <li class='fragment'>CSS 3 - 391,611 words</li>
                         </ul>
-                        (also, more browsers and more interested parties)
+                        <aside class='notes'>
+                            * One thing we can do is try to limit complexity
+                            * Each subsequent version of CSS has become increasingly more complex
+                            * Just in terms of word count in the specs, you can see significant increase
+                            * between each version.
+                            * One of the reasons, too, why CSS 2.1 took so much longer.
+                        </aside>
                     </section>
 
                     <section>
                         <h2>Modular Standards</h2>
-                        (can move forward independently, spec and impl)
-                        (focused testing, implementation, and spec writing)
+                        <aside class='notes'>
+                            * With CSS3, the W3C decided to break the specification up into multiple modules
+                            * Each module focuses testing, implementation and specification on a specific feature
+                            * This way, standards can move forward independently.
+                            * As an example of how much this can improve speed, Variables went from FPWD to LC in &lt; 1 yr
+                        </aside>
                     </section>
 
                     <section>
-                        <h2>Independent Specifications</h2>
-                        (Variables went from FPWD to LC in &lt; 1yr)
+                        <h2>Regions, Exclusions and</h2>
+                        <aside class='notes'>
+                            * For example, Regions and Exclusions are two of these modular CSS3 specifications.
+                            * They were originally proposed as a single specification, but broken up to be smaller.
+                            * Some new ideas were spun off, or became part of other specs
+                        </aside>
                     </section>
 
                     <section>
-                        <h2>Regions and Exclusions</h2>
-                        (how big are regions and exclusions)
-                        (originally proposed as one module)
-                        (new ideas that come up are spun off)
-                        (css page templates, breaks, clipping shapes)
+                        <div class='show-container'>
+                            <h2 class='show-container monospace'>Page</h2>
+                            <h2 class='show-container monospace'>Temp</h2>
+                        </div>
+                        <div class='show-container'>
+                            <h2 class='show-container monospace'>late</h2>
+                            <h2 class='show-container monospace'>s   </h2>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class='show-container'>
+                            <h2 class='show-container monospace'>Fragmentation<br/> </h2>
+                            <h2 class='show-container monospace'>break-before:<br/>region</h2>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class='show-container'>
+                            <h2 class='show-container monospace inverse clip'>Masking<br/>clip-path: shape</h2>
+                        </div>
                     </section>
                 </section>
 
@@ -249,28 +476,67 @@
                     <section><h2>Each module is part of a larger toolset</h2></section>
 
                     <section>
-                        <h2>Regions and Exclusions</h2>
-                        (Example -- RANE magazine)
+                        <div class='show-container inverse'>
+<h2 class='monospace regex left'>C   
+SS  
+REG 
+IONS</h2>
+<h2 class='monospace regex middle'>A
+ N
+  D</h2>
+<h2 class='monospace regex right'>EXCL
+USI
+ON
+S</h2>
+                        </div>
                     </section>
 
                     <section>
-<pre><code>.region { height: auto; }
+<pre><code>.region {
+    flow-from: story-flow;
+    shape-inside: polygon(...);
+}
+.content { flow-into: story-flow; }</code></pre>
+                    </section>
+
+                    <section>
+<pre><code>.region { shape-inside: polygon(...); }
 .content { shape-inside: circle(...); }</code></pre>
                     </section>
 
                     <section>
-<pre><code>.region { shape-inside: rectangle(...); }
-.content { shape-inside: circle(...); }</code></pre>
+                        <h2>Regions and</h2>
+                        <div class='show-container'>
+                            <h2 class='show-container monospace inverse'>M<br/>U<br/>L</h2>
+                            <h2 class='show-container monospace inverse'>T<br/>I<br/>C</h2>
+                        </div>
+                        <div class='show-container'>
+                            <h2 class='show-container monospace inverse'>O<br/>L<br/>U</h2>
+                            <h2 class='show-container monospace inverse'>M<br/>N<br/><br/></h2>
+                        </div>
                     </section>
 
                     <section>
-                        <h2>Regions, Exclusions, and</h2>
-                        <ul>
-                            <li>Web Components</li>
-                            <li>Multicolumn</li>
-                            <li>FlexBox</li>
-                            <li>Grid</li>
-                        </ul>
+                        (pic of Alice with multicol)
+                    </section>
+
+                    <section>
+                        <h2>Exclusions and</h2>
+                        <div class='show-container' style='border-radius:50%'>
+                            <h2 class='show-container inverse monospace'>FL</h2>
+                            <h2 class='show-container inverse monospace'>EX</h2><br/>
+                            <h2 class='show-container inverse monospace'>BO</h2>
+                            <h2 class='show-container inverse monospace'>X </h2>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Web Components</h2>
+                        <div class='show-container'>
+                            <h2 class='show-container monospace inverse' style='float: left; margin-right: .25em'>A<br/>N<br/>D</h2>
+                            <h2 class='show-container monospace inverse'>REG-</h2><br/>
+                            <h2 class='show-container monospace inverse'>IONS</h2>
+                        </div>
                     </section>
                 </section>
 
@@ -280,8 +546,20 @@
                         <h2>The web isn't standing still</h2>
                     </section>
                     <section>
-                        code markup
-                        code result
+                        <div class='comment'>
+                            <h2 class='icon icon-user'></h2>
+                            <div class='content monospace'>{ shape-inside:<br/><!--
+                            -->  circle(...); }</div>
+                        </div>
+                        <div class='comment right'>
+                            <div class='content'>
+                                <div class='show-container monospace'>C O<br/><!--
+                                    -->N T E<br/><!--
+                                    -->N T<!--
+                                --></div>
+                            </div>
+                            <h2 class='icon icon-laptop'></h2>
+                        </div>
                     </section>
                 </section>
 

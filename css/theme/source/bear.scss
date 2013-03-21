@@ -57,6 +57,11 @@ $selectionBackgroundColor: #134674;
     .state-background { background-color: darken($mainColor, 30%); }
 }
 
+.inverse {
+    color: $backgroundColor;
+    background-color: darken($mainColor, 30%);
+}
+
 // Background generator
 @mixin bodyBackground() {
 
@@ -64,8 +69,14 @@ $selectionBackgroundColor: #134674;
 
 .reveal code, .reveal .monospace {
     font-family: 'Source Code Pro', monospace;
+    white-space: pre;
 }
 
+.reveal .show-container {
+    border: 2px solid $mainColor;
+    padding: .5em;
+    display: inline-block;
+}
 .reveal pre {
     font-size: 1em;
     width: 100%;
@@ -169,6 +180,42 @@ $carpetRed: rgb(230, 63, 79);
 
 .reveal {
     h1, h2, h3, h4, h5, h6 { line-height: 1.1em; }
+}
+
+.reveal .comment {
+    margin: 1em;
+    > * { display: inline-block; }
+    .icon { vertical-align: middle; font-size: 3em; }
+    .content {
+        margin-left: 1em;
+        margin-right: 3em;
+        position: relative;
+        border-radius: 1em;
+        padding: 1em;
+        min-height: 3em;
+        background-color: darken($mainColor, 30%);
+        color: $backgroundColor;
+    }
+    .content:before {
+        position: absolute;
+        width: 0; height: 0;
+        right: 100%;
+        border: 1em solid transparent;
+        border-left-width: 0;
+        border-right-color: darken($mainColor, 30%);
+        content: ' ';
+    }
+}
+.comment.right {
+    .content {
+        margin-left: 3em;
+        margin-right: 1em;
+    }
+    .content:before {
+        left: 100%;
+        border-left: 1em solid darken($mainColor, 30%);
+        border-right-width: 0;
+    }
 }
 
 .reveal a.no-roll {
