@@ -75,7 +75,7 @@
 
                 <section>
                     <h2>About Me</h2>
-                    (img of Web Engine team)
+                    <img src='resources/web-engine-team.jpg' alt='Web Engine Team' />
                     <aside class='notes'>
                         * I work on the Web Engine team at Adobe
                         * We help develop and implement web standards
@@ -282,7 +282,6 @@
                     </section>
 
                     <section>
-                        <!--<h2>Say</h2>-->
                         <div class='comment bottom'>
                         <div class='content'><pre><code class='css'><!--
                         -->.circle {<br/><!--
@@ -297,7 +296,6 @@
                     </section>
 
                     <section>
-                        <!--<h2>Get</h2>-->
                         <div class='comment bottom'>
                             <div class='content'>
                                 <img src='resources/css-exclusions.png' class='plain' alt='exclusions' />
@@ -445,11 +443,22 @@
                     </section>
 
                     <section>
-                        <h2>Regions, Exclusions and</h2>
+                        (how many standards does CSS3 have?)
+                    </section>
+
+                    <section>
+                        <h2>Regions and Exclusions</h2>
                         <aside class='notes'>
                             * For example, Regions and Exclusions are two of these modular CSS3 specifications.
                             * They were originally proposed as a single specification, but broken up to be smaller.
-                            * Some new ideas were spun off, or became part of other specs
+                            * Each of them is moving forward independently.
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>Regions, Exclusions, and</h2>
+                        <aside class='notes'>
+                            * In order to keep modules small, try to keep them as self contained as possible.
                         </aside>
                     </section>
 
@@ -462,6 +471,12 @@
                             <h2 class='show-container monospace'>late</h2>
                             <h2 class='show-container monospace'>s   </h2>
                         </div>
+                        <aside class='notes'>
+                            * For example, when working with Regions, one feature that seemed desirable was the
+                            * Ability to define templates, where a page would insert the template enough times
+                            * to fit the content.
+                            * Rather than including this in the Regions spec, it was spun off into a separte module.
+                        </aside>
                     </section>
 
                     <section>
@@ -469,48 +484,84 @@
                             <h2 class='show-container monospace'>Fragmentation<br/> </h2>
                             <h2 class='show-container monospace'>break-before:<br/>region</h2>
                         </div>
+                        <aside class='notes'>
+                            * It was also important to specify how content should break across regions.
+                            * Originally, this was included in the Regions specification
+                            * But as the fragmentation specification evolved, it became apparent that that was a better place
+                            * So the break properties are now defined in the fragmentation specification, along with some for other features (like multicolumn).
+                        </aside>
                     </section>
 
                     <section>
                         <div class='show-container'>
                             <h2 class='show-container monospace inverse clip'>Masking<br/>clip-path: shape</h2>
                         </div>
+                        <aside class='notes'>
+                            * Or, when the CSS masking spec started consolidating masking behavior, and needed
+                            * A method of specifying shapes in CSS, that spec re-used the shapes syntax from
+                            * the exclusions specification.
+                        </aside>
                     </section>
                 </section>
 
 <!-- 6. Complexity limit -->
                 <section>
-                    <section><h2>How can we build standards faster?</h2></section>
-                    <section><h2>How fast can we build standards?</h2></section>
-                    <section><h2>Each module is part of a larger toolset</h2></section>
+                    <section>
+                        <h2>How lightweight can we make modules?</h2>
+                        <aside class='notes'>
+                            * But there is a limit to how small and lightweight we can make a module
+                            * And still have it be useful.
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Each module is part of a larger toolset</h2>
+                        <aside class='notes'>
+                            * After all, each module is part of a larger toolset.
+                            * And, it is really most useful only when it can be combined with the other modules.
+                            * Which means, you have to make sure you account for working with all of them.
+                        </aside>
+                    </section>
 
                     <section>
                         <div class='show-container inverse'>
-<h2 class='monospace regex left'>C   
-SS  
-REG 
-IONS</h2>
-<h2 class='monospace regex middle'>A
- N
-  D</h2>
-<h2 class='monospace regex right'>EXCL
-USI
-ON
-S</h2>
+                            <h2 class='monospace regex left'>C   <br/><!--
+                            -->SS  <br/><!--
+                            -->REG <br/><!--
+                            -->IONS<br/></h2>
+                            <h2 class='monospace regex middle'>A<br/><!--
+                            --> N<br/><!--
+                            -->  D<br/></h2>
+                            <h2 class='monospace regex right'>EXCL<!--
+                            -->USI<br/><!--
+                            -->ON<br/><!--
+                            -->S</h2>
                         </div>
+                        <aside class='notes'>
+                            * For example, I mentioned that regions and exclusions were originally conceived as one specification.
+                            * So they need to work together.
+                            * For example, having content flow through regions with shapes.
+                            * Or having content in regions avoid certain exclusions.
+                        </aside>
                     </section>
 
                     <section>
-<pre><code>.region {
-    flow-from: story-flow;
-    shape-inside: polygon(...);
-}
-.content { flow-into: story-flow; }</code></pre>
+                        <pre><code>.region {<br/><!--
+                        -->    flow-from: story-flow;<br/><!--
+                        -->    shape-inside: polygon(...);<br/><!--
+                        -->}<br/><!--
+                        -->.content { flow-into: story-flow; }</code></pre>
+                        <aside class='notes'>
+                            * The markup would look something like this
+                        </aside>
                     </section>
 
                     <section>
-<pre><code>.region { shape-inside: polygon(...); }
-.content { shape-inside: circle(...); }</code></pre>
+                        <pre><code>.region { shape-inside: polygon(...); }<br/><!--
+                        -->.content { shape-inside: circle(...); }</code></pre>
+                        <aside class='notes'>
+                            * But you start running into edge cases, like what happens when regions and flowed content both have a shape-inside set?
+                            * (We're currently gunning for intersection)
+                        </aside>
                     </section>
 
                     <section>
@@ -523,18 +574,29 @@ S</h2>
                             <h2 class='show-container monospace inverse'>O<br/>L<br/>U</h2>
                             <h2 class='show-container monospace inverse'>M<br/>N<br/><br/></h2>
                         </div>
+                        <aside class='notes'>
+                            * Or, looking at regions combined with multicolumn. It would be nice to combine the two.
+                            * You could use regions for 'page' containers, and just set each page to have multiple columns.
+                        </aside>
                     </section>
 
                     <section>
                         <h2>Regions and</h2>
                         <div class='show-container'>
-                            <h2 class='show-container monospace inverse'>1<br/>2<br/>3</h2>
-                            <h2 class='show-container monospace inverse'>7<br/>8<br/>9</h2>
+                            <h2 class='show-container monospace inverse'>M<br/>U<br/>L</h2>
+                            <h2 class='show-container monospace inverse'>O<br/>L<br/>U</h2>
                         </div>
                         <div class='show-container'>
-                            <h2 class='show-container monospace inverse'>4<br/>5<br/>6</h2>
-                            <h2 class='show-container monospace inverse'>10<br/>11<br/><br/></h2>
+                            <h2 class='show-container monospace inverse'>T<br/>I<br/>C</h2>
+                            <h2 class='show-container monospace inverse'>M<br/>N<br/><br/></h2>
                         </div>
+                        <aside class='notes'>
+                            * But how, exactly, should this lay out?
+                            * If you just put multicolumn on the content, it will lay out as one continuous block.
+                            * And then divide that block across the regions.
+                            * So, as you can see here, we continue from the first region, into the second, back to the first, and back to the second. 
+                            * It could be a mess. Unless we account for it in the spec.
+                        </aside>
                     </section>
 
                     <section>
@@ -545,6 +607,14 @@ S</h2>
                             <h2 class='show-container inverse monospace'>BO</h2>
                             <h2 class='show-container inverse monospace'>X </h2>
                         </div>
+                        <aside class='notes'>
+                            * Or, say you're working with FlexBox, which allows you to specify how blocks lay out and wrap.
+                            * Here we've got them laying out left to right, top to bottom.
+                            * What if you want to wrap these in a circular shape inside?
+                            * Well, this can get tricky because flex boxes establish their own block formatting context.
+                            * There are optimizations in place assuming that this can be laid out and painted on its own.
+                            * So we need to consider whether we should allow shape insides across block formatting contexts.
+                        </aside>
                     </section>
 
                     <section>
@@ -554,6 +624,10 @@ S</h2>
                             <h2 class='show-container monospace inverse'>REG-</h2><br/>
                             <h2 class='show-container monospace inverse'>IONS</h2>
                         </div>
+                        <aside class='notes'>
+                            * Or, folks might want to use web components to specify a layout template for their content.
+                            * It's important that we make sure this works, both in the spec and implementation.
+                        </aside>
                     </section>
                 </section>
 
@@ -561,6 +635,12 @@ S</h2>
                 <section>
                     <section>
                         <h2>The web isn't standing still</h2>
+                        <aside class='notes'>
+                            * Just because it's not a recommendation yet, or even a specification, doesn't mean there
+                            * isn't something out there on the web.
+                            * It's all about building what you need.
+                            * And as features standardize, what's really important
+                        </aside>
                     </section>
                     <section>
                         <div class='comment'>
@@ -577,66 +657,48 @@ S</h2>
                             </div>
                             <h2 class='icon icon-laptop'></h2>
                         </div>
+                        <aside class='notes'>
+                            * Is being able to provide the markup
+                            * And have the browser translate it into what you want presented to the user.
+                        </aside>
                     </section>
                 </section>
 
-<!-- 8. Polyfills -->
+<!-- 8. Native -->
                 <section>
                     <section>
-                        <h2>Polyfills</h2>
-                        <h3>fake the functionality of the future, today</h3>
+                        <h2>Evolving Browsers</h2>
+                        <aside class='notes'>
+                            * As I mentioned before, browsers aren't waiting for specs to finalize to start implementing functionality.
+                            * They are continuously working on new features, even some that may still be experimental.
+                        </aside>
                     </section>
                     <section>
-                        <h2 class='inverse'>polyfill.js</h2>
-                        <div class='wedge inverse'>
-                            <h2>older browsers</h2>
-                        </div>
-                    </section>
-                    <section>
-                        <h2 class='inverse'>polyfill.js</h2>
-                        <div class='wedge inverse'>
-                            <h2>new functionality</h2>
-                        </div>
-                    </section>
-                    <section>
-                        <h2>Polyfills</h2>
+                        <h2>Releasing early, and often</h2>
                         <ul>
-                            <li>work now</li>
-                            <li>across browsers</li>
-                            <li>can be replaced by native</li>
-                            <li>let you try out new features</li>
+                            <li>
+                                Test builds<br/>
+                                <small>(
+                                <a href="http://www.chromium.org/getting-involved/dev-channel">CR</a> |
+                                <a href="http://www.mozilla.org/en-US/firefox/channel/">FF</a> |
+                                <a href="http://ie.microsoft.com/testdrive/">IE</a> |
+                                <a href="http://www.opera.com/browser/next/">O</a> |
+                                <a href="http://http://nightly.webkit.org/">S</a>
+                                )</small>
+                            </li>
+                            <li>Experimental Channel</li>
+                            <li>Release builds</li>
                         </ul>
+                        <aside class='notes'>
+                            * One of the problems in the past has been long release cycles for browsers.
+                            * There may be a gap of years between browser versions.
+                            * One way of getting early feedback is by releasing test builds, previews of future functionality.
+                            * All major browsers do this, some updating pretty much daily.
+                            * Some, generally calling themselves an 'experimental channel', can install alongside your existing browser, and automatically update. ZOMG super cool.
+                            * Release cycles are also tightening. Some releasing as often as every six weeks.
+                            * Regions and Exclusions contributions made to WK, for example, will be available in Chrome in 6 weeks.
+                        </aside>
                     </section>
-
-                    <section>
-                        <img class='plain' src='resources/codepen-rodeo.png' />
-                        <small><a href='http://codepen.io/tag/rodeo-004/'>CodePen Regions Rodeo</a></small>
-                    </section>
-
-                    <section>
-                        <h2>Check 'em out</h2>
-                        <ul>
-                            <li><a href='https://github.com/BetleyWhitehorne/CSS3MultiColumn'>Multicolumn</a></li>
-                            <li><a href='http://github.com/doctyper/flexie'>FlexBox</a></li>
-                            <li><a href='http://adobe-webplatform.github.com/css-regions-polyfill/'>Regions</a></li>
-                            <li><a href='https://github.com/dglazkov/Web-Components-Polyfill'>Web Components</a></li>
-                            <li><a href='https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills'>and more</a>...</li>
-                        </ul>
-                    </section>
-                    
-                    <section>
-                        <h2>But</h2>
-                        <ul>
-                            <li>Polyfills are a workaround</li>
-                            <li>Feature specs are likely to change</li>
-                            <li>Polyfills can be non-performant</li>
-                        </ul>
-                    </section>
-                </section>
-
-<!-- 9. Native -->
-                <section>
-                    <section><h2>Sometimes you just need native</h2></section>
                     <section>
                         <h2>Native implementations</h2>
                         <ul>
@@ -653,17 +715,86 @@ S</h2>
                             <li>and a higher degree of finish</li>
                         </ul>
                     </section>
+                </section>
+
+<!-- 9. Polyfills -->
+                <section>
                     <section>
-                        <h2>How do we get early feedback?</h2>
+                        <h2>Polyfills</h2>
+                        <h3>fake the functionality of the future, today</h3>
+                        <aside class='notes'>
+                            * One workaround we are seeing these days is the use of polyfills.
+                            * Polyfills allow you to access future functionality, even when the browser hasn't implemented it yet.
+                        </aside>
                     </section>
                     <section>
-                        <h2>Release early, and often</h2>
-                        (release test builds -- all major browsers)
-                        (Canary -- updates almost daily, runs in parallel)
-                        (faster release cycle)
+                        <h2 class='inverse'>polyfill.js</h2>
+                        <div class='wedge inverse'>
+                            <h2>older browsers</h2>
+                        </div>
+                        <aside class='notes'>
+                            * Typically, polyfills work by filling in missing functionality in a browser with javascript.
+                            * You include a javascript library, use the unimplemented feature, and the javascript will transform it into something the older browser can understand.
+                            * Traditionally, these were a way of retrofitting legacy browsers with modern standards.
+                        </aside>
                     </section>
                     <section>
-                        <h2>Anyone can test out new browsers</h2>
+                        <h2 class='inverse'>polyfill.js</h2>
+                        <div class='wedge inverse'>
+                            <h2>new functionality</h2>
+                        </div>
+                        <aside class='notes'>
+                            * What we are seeing today, however, is polyfills coming out for features before they have been fully implemented in any browser.
+                            * The spec has generally settled to some degree, meaning there may be some partial implementations.
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Polyfills</h2>
+                        <ul>
+                            <li>work now</li>
+                            <li>across browsers</li>
+                            <li>can be replaced by native</li>
+                            <li>let you try out new features</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <img class='plain' src='resources/codepen-rodeo.png' />
+                        <small><a href='http://codepen.io/tag/rodeo-004/'>CodePen Regions Rodeo</a></small>
+                        <aside class='notes'>
+                            * Polyfills allow you to get functionality into people's hands today.
+                            * Which means you can get people trying out your feature in something like this.
+                            * CodePen, an html sample sharing site, had a series of week-long challenges to see what kind of awesome work people could come up with.
+                            * Because Regions had a polyfill, we were able to have one of these challenges be test driving regions and coming up with something awesome.
+                            * Early feedback is invaluable.
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>But</h2>
+                        <ul>
+                            <li>Polyfills are a workaround</li>
+                            <li>Feature specs are likely to change</li>
+                            <li>Polyfills can be non-performant</li>
+                        </ul>
+                        <aside class='notes'>
+                            * It is important to note that there are some tradeoffs to using polyfills.
+                            * Most importantly, they are a workaround and require external js libraries.
+                            * They also tend to start emerging when specifications are likely to change.
+                            * So you may write code that needs to be altered to use native functionality when it comes along.
+                            * And finally, because they are running client-side to make adjustments, they can suffer from some performance concerns.
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <h2>Check 'em out</h2>
+                        <ul>
+                            <li><a href='https://github.com/BetleyWhitehorne/CSS3MultiColumn'>Multicolumn</a></li>
+                            <li><a href='http://github.com/doctyper/flexie'>FlexBox</a></li>
+                            <li><a href='http://adobe-webplatform.github.com/css-regions-polyfill/'>Regions</a></li>
+                            <li><a href='https://github.com/dglazkov/Web-Components-Polyfill'>Web Components</a></li>
+                            <li><a href='https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills'>and more</a>...</li>
+                        </ul>
                     </section>
                 </section>
 
