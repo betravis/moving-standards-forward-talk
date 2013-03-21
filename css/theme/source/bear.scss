@@ -184,8 +184,8 @@ $carpetRed: rgb(230, 63, 79);
 
 .reveal .comment {
     margin: 1em;
-    > * { display: inline-block; }
-    .icon { vertical-align: middle; font-size: 3em; }
+    > * { display: inline-block; vertical-align: middle; }
+    .icon { font-size: 3em; }
     .content {
         margin-left: 1em;
         margin-right: 3em;
@@ -206,7 +206,7 @@ $carpetRed: rgb(230, 63, 79);
         content: ' ';
     }
 }
-.comment.right {
+.reveal .comment.right {
     .content {
         margin-left: 3em;
         margin-right: 1em;
@@ -215,6 +215,36 @@ $carpetRed: rgb(230, 63, 79);
         left: 100%;
         border-left: 1em solid darken($mainColor, 30%);
         border-right-width: 0;
+    }
+}
+
+.reveal .comment.bottom {
+    .content {
+        margin: 0;
+        margin-bottom: 1em;
+    }
+    .content:before {
+        top: 100%;
+        left: 50%;
+        margin-left: -1em;
+        border: 1em solid transparent;
+        border-bottom-width: 0;
+        border-top: 1em solid darken($mainColor, 30%);
+    }
+}
+
+.reveal .wedge {
+    min-height: 3em;
+    position: relative;
+    padding-top: 2em;
+    :before {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -1em;
+        border: 1em solid transparent;
+        border-top-color: $backgroundColor;
+        content: ' ';
     }
 }
 
