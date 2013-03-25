@@ -85,10 +85,8 @@
 <!-- 1. Regions and Exclusions - History & Overview -->
                 <section>
                     <section>
-                        <h2>The Evolution of Text Layout</h2>
+                        <h2>Text Layout Fundamentals</h2>
                         <aside class='notes'>
-                            * (Adobe is working on a couple web standards dealing with text layout)
-                            * (I want to talk a bit about the history of text layout)
                             * Two of the specifications Adobe is working on, Regions and Exclusions, deal with making complicated layouts on the web easier.
                             * I figured it might be helpful to provide a framework for this discussion in terms of historical text layout.
                         </aside>
@@ -139,10 +137,6 @@
                         </aside>
                     </section>
                     <section>
-                        <img class='plain' src='resources/simon-foster-design.png' alt='scroll based portfolio' />
-                        <small>Source: <a href='http://simonfosterdesign.com'>simonfosterdesign.com</a></small>
-                    </section>
-                    <section>
                         <img class='plain' src='resources/tvsafety.png' alt='circular content' />
                         <small>Source: <a href='http://tvsafety.org'>tvsafety.org</a></small>
                     </section>
@@ -153,52 +147,9 @@
                     <section>
                         <h2>but it's still hard</h2>
                     </section>
-
-                    <section>
-                        <div class='comment bottom'>
-                            <div class='content'>
-                                <img src='resources/alice-nowrap.png' class='plain' alt='browser display' />
-                            </div><br/>
-                            <div class='icon icon-laptop'></div>
-                        </div>
-                        <aside class='notes'>
-                            * One of the new challenges with computers, and the web, is that
-                            * in order to get a desired effect, you have to describe it so
-                            * the computer can display it.
-                            * And that means describing it to a computer.
-                        </aside>
-                    </section>
-
-                    <section>
-                        <div class='comment bottom'>
-                            <div class='content'><pre><code class='css'><!--
-                            -->.content:before {<br/><!--
-                            -->  display:block;<br/><!--
-                            -->  float:left;<br/><!--
-                            -->  width:240px;<br/><!--
-                            -->  height:280px;<br/><!--
-                            -->  background:url(...);<br/><!--
-                            -->}<!--
-                            --></code></pre>
-                            </div><br/>
-                            <div class='icon icon-user'></div>
-                        </div>
-                        <aside class='notes'>
-                            * In a language the computer can understand.
-                            * And some things don't translate easily.
-                        </aside>
-                    </section>
                 </section>
 
                 <section>
-                    <section>
-                        <h2>Regions and Exclusions</h2>
-                        <h3>Extending the language</h3>
-                        <aside class='notes'>
-                            * We would like to extend the language, so that some complex layouts
-                            * Are easier to describe
-                        </aside>
-                    </section>
                     <section>
                         <h2>Regions</h2>
                         <aside class='notes'>
@@ -215,10 +166,10 @@
                         </aside>
                     </section>
                     <section>
-                        <pre><code class='css'><!--
-                        -->.content { flow-into: story-flow; } <br/><!--
-                        -->.region  { flow-from: story-flow; }<!--
-                        --></code></pre>
+<pre><code class='css'><!--
+-->.content { flow-into: story-flow; }
+.region  { flow-from: story-flow; }<!--
+--></code></pre>
                         <aside class='notes'>
                             * The markup would look something like this.
                             * We take some content, and put it into a flow.
@@ -244,13 +195,13 @@
                         </aside>
                     </section>
                     <section>
-                        <pre><code class='css'><!--
-                        -->.circle { <br/><!--
-                        -->    wrap-flow: end; <br/> <!--
-                        -->    shape-outside: circle(50%, 50%, 50%); <br/> <!--
-                        -->    shape-inside: outside-shape; <br/> <!--
-                        -->}<!--
-                        --></code></pre>
+<pre><code class='css'><!--
+-->.circle {
+    wrap-flow: end;
+    shape-outside: circle(50%, 50%, 50%);
+    shape-inside: outside-shape;
+}<!--
+--></code></pre>
                         <aside class='notes'>
                             * We specify that we want content to wrap on the end (or right) side
                             * Respecting a circle that is centered at 50%, 50%, with a 50% radius
@@ -285,52 +236,6 @@
                     </section>
 
                     <section>
-                        <h2>Different Browsers</h2>
-                        <div class='ribbon'>
-                            <img src='resources/chrome-512.png' />
-                            <img src='resources/firefox-512.png' />
-                            <img src='resources/ie-256.png' />
-                            <img src='resources/opera-512.png' />
-                            <img src='resources/safari-512.png' />
-                        </div>
-                        <aside class='notes'>
-                            (change this - standards mean you can access it...)
-                            * If we go back to Johansson's fuzzier definition, what we really want
-                            * Is for everyone to agree on a meaning, largely meaning the web browsers
-                            * At the end of the day, though, what you want is to be able to use a feature
-                            * And that means a feature being reliably implemented across browsers
-                        </aside>
-                    </section>
-
-                    <section>
-                        <h2>Different Devices</h2>
-                        <h2>
-                            <i class='icon-desktop'></i>
-                            <i class='icon-tablet'></i>
-                            <i class='icon-mobile-phone'></i>
-                        </h2>
-                    </section>
-
-                    <section>
-                        <h2>Different People</h2>
-                        <h2>
-                            <i class='icon-group'></i>
-                            <i class='icon-globe'></i>
-                            <i class='icon-group'></i>
-                        </h2>
-                    </section>
-                </section>
-
-                <section>
-                    <section>
-                        <h2>Who is going to make it happen?</h2>
-                    </section>
-
-                    <section>
-                        <h2>Standards Bodies</h2>
-                    </section>
-
-                    <section>
                         <blockquote>
                             W3C publishes documents that define Web technologies. These documents follow a process designed to promote consensus, fairness, public accountability, and quality. At the end of this process, W3C publishes Recommendations, which are considered Web standards.
                         </blockquote>
@@ -358,13 +263,21 @@
                             * A 'recommendation' stage, where the specification has been finalized.
                         </aside>
                     </section>
-                </section>
 
-                <section>
                     <section>
-                        <h2>What is a Standard?</h2>
+                        <h2>Standards in the Wild</h2>
+                        <div class='ribbon'>
+                            <img src='resources/chrome-512.png' />
+                            <img src='resources/firefox-512.png' />
+                            <img src='resources/ie-256.png' />
+                            <img src='resources/opera-512.png' />
+                            <img src='resources/safari-512.png' />
+                        </div>
                         <aside class='notes'>
-                            * So let's revisit what exactly a standard is
+                            * If we go back to Johansson's fuzzier definition, what we really want
+                            * Is for everyone to agree on a meaning, largely meaning the web browsers
+                            * At the end of the day, though, what you want is to be able to use a feature
+                            * And that means a feature being reliably implemented across browsers
                         </aside>
                     </section>
 
@@ -392,11 +305,10 @@
                     </section>
 
                     <section>
-                        <h2>Is it a Standard?</h2>
+                        <h2>De Facto Standards</h2>
                         <ul>
                             <li class='fragment'>
                                 Media Queries <div class='fragment'>(Rec 2012.06.19)</div>
-                                <!-- yes -->
                             </li>
                             <li class='fragment'>
                                 Gradients
@@ -404,7 +316,6 @@
                                     <p>CSS Image Values and Replaced Content</p>
                                     <p>(CR 2012.04.17)</p>
                                 </div>
-                                <!-- prefixed support in safari and most mobile browsers, not opera mini -->
                             </li>
                             <li class='fragment'>
                                 Border Radius
@@ -412,7 +323,6 @@
                                     <p>CSS Backgrounds and Borders</p>
                                     <p>(CR 2012.07.24)</p>
                                 </div>
-                                <!-- not opera mini -->
                             </li>
                         </ul>
                         <aside class='notes'>
@@ -912,6 +822,15 @@
         <script src="reveal.js/lib/js/head.min.js"></script>
         <script src="reveal.js/js/reveal.min.js"></script>
         <script>
+            Reveal.addEventListener( 'slidechanged', function( event ) {
+                // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+                var notes = event.currentSlide.querySelector(".notes");
+                if(notes) {
+                    console.info(notes.innerHTML.replace(/\n\s+/g,'\n'));
+                }
+            } );
+        </script>
+        <script>
 
             // Full list of configuration options available here:
             // https://github.com/hakimel/reveal.js#configuration
@@ -937,15 +856,6 @@
                 ]
             });
 
-        </script>
-        <script>
-            Reveal.addEventListener( 'slidechanged', function( event ) {
-                // event.previousSlide, event.currentSlide, event.indexh, event.indexv
-                var notes = event.currentSlide.querySelector(".notes");
-                if(notes) {
-                    console.info(notes.innerHTML.replace(/\n\s+/g,'\n'));
-                }
-            } );
         </script>
     </body>
 </html>
