@@ -140,7 +140,9 @@
                     </section>
                     <section>
                         <img class='plain' src='resources/simon-foster-design.png' alt='scroll based portfolio' />
-                        <small>Source: <a href='http://simonfosterdesign.com'>simonfosterdesign.com</a></small>
+                        <p>
+                            <small>Source: <a href='http://simonfosterdesign.com'>simonfosterdesign.com</a></small>
+                        </p>
                     </section>
                     <section>
                         <img class='plain' src='resources/tvsafety.png' alt='circular content' />
@@ -180,6 +182,28 @@
                             -->  background:url(...);<br/><!--
                             -->}<!--
                             --></code></pre>
+                            </div><br/>
+                            <div class='icon icon-user'></div>
+                        </div>
+                        <aside class='notes'>
+                            * In a language the computer can understand.
+                            * And some things don't translate easily.
+                        </aside>
+                    </section>
+
+                    <section>
+                        <div class='comment bottom'>
+                            <div class='content'>
+                                <img src='resources/alice-wrap.png' class='plain' alt='browser display' />
+                            </div><br/>
+                            <div class='icon icon-laptop'></div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class='comment bottom'>
+                            <div class='content'>
+                                <h2>???</h2>
                             </div><br/>
                             <div class='icon icon-user'></div>
                         </div>
@@ -285,6 +309,28 @@
                     </section>
 
                     <section>
+                        <h2>Different People</h2>
+                        <h2>
+                            <i class='icon-group'></i>
+                            <i class='icon-globe'></i>
+                            <i class='icon-group'></i>
+                        </h2>
+                        <aside class='notes'>
+                            * Standards mean that the content you write 
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>Different Devices</h2>
+                        <h2>
+                            <i class='icon-desktop'></i>
+                            <i class='icon-tablet'></i>
+                            <i class='icon-mobile-phone'></i>
+                        </h2>
+                        <aside class='notes'>
+                        </aside>
+                    </section>
+                    <section>
                         <h2>Different Browsers</h2>
                         <div class='ribbon'>
                             <img src='resources/chrome-512.png' />
@@ -300,24 +346,6 @@
                             * At the end of the day, though, what you want is to be able to use a feature
                             * And that means a feature being reliably implemented across browsers
                         </aside>
-                    </section>
-
-                    <section>
-                        <h2>Different Devices</h2>
-                        <h2>
-                            <i class='icon-desktop'></i>
-                            <i class='icon-tablet'></i>
-                            <i class='icon-mobile-phone'></i>
-                        </h2>
-                    </section>
-
-                    <section>
-                        <h2>Different People</h2>
-                        <h2>
-                            <i class='icon-group'></i>
-                            <i class='icon-globe'></i>
-                            <i class='icon-group'></i>
-                        </h2>
                     </section>
                 </section>
 
@@ -380,6 +408,9 @@
                         </div><br/>
                         <div class='icon icon-user'></div>
                         </div>
+                        <aside class='notes'>
+                            * A content author being able to write this...
+                        </aside>
                     </section>
 
                     <section>
@@ -389,35 +420,58 @@
                             </div><br/>
                             <div class='icon icon-laptop'></div>
                         </div>
+                        <aside class='notes'>
+                            * and expect browsers to render this
+                            * for some definition of 'expect'
+                        </aside>
                     </section>
 
                     <section>
                         <h2>Is it a Standard?</h2>
-                        <ul>
-                            <li class='fragment'>
-                                Media Queries <div class='fragment'>(Rec 2012.06.19)</div>
-                                <!-- yes -->
-                            </li>
-                            <li class='fragment'>
-                                Gradients
-                                <div class='fragment'>
-                                    <p>CSS Image Values and Replaced Content</p>
-                                    <p>(CR 2012.04.17)</p>
-                                </div>
-                                <!-- prefixed support in safari and most mobile browsers, not opera mini -->
-                            </li>
-                            <li class='fragment'>
-                                Border Radius
-                                <div class='fragment'>
-                                    <p>CSS Backgrounds and Borders</p>
-                                    <p>(CR 2012.07.24)</p>
-                                </div>
-                                <!-- not opera mini -->
-                            </li>
-                        </ul>
                         <aside class='notes'>
                             * Because W3C recommendations can take time to finalize, features may standardize across browsers before the recommendation process has finished.
                             * Some features may even originate with the browsers, and eventually be standardized by the W3C.
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>Media Queries</h2>
+                        <pre><code class='css'>@media screen and (max-width: 600px) { }</code></pre>
+                        <ul>
+                            <li>Browser Support: <span class='fragment'>Very Good</span></li>
+                            <li>W3C Status: <span class='fragment'>(Rec 2012.06.19)</span></li>
+                        </ul>
+                        <aside class='notes'>
+                            * CSS Media Queries
+                            * IE 9+, otherwise excellent
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>Gradients</h2>
+<pre><code class='css'>background-image:
+    linear-gradient(bottom, white, black);</code></pre>
+                        <ul>
+                            <li>Browser Support: <span class='fragment'>Good</span></li>
+                            <li>W3C Status: <span class='fragment'>(CR 2012.04.17)</span></li>
+                        </ul>
+                        <aside class='notes'>
+                            * CSS Image Values and Replaced Content
+                            * IE 10+, Not yet in Opera Mini browser
+                            * Still prefixed in WebKit based browsers
+                        </aside>
+                    </section>
+                    
+                    <section>
+                        <h2>Border Radius</h2>
+                        <pre><code class='css'>border-radius: 10px;</code></pre>
+                        <ul>
+                            <li>Browser Support: <span class='fragment'>Very Good</span></li>
+                            <li>W3C Status: <span class='fragment'>(CR 2012.07.24)</span></li>
+                        </ul>
+                        <aside class='notes'>
+                            * CSS Backgrounds and Borders
+                            * IE 9+, not yet on mobile Opera
                         </aside>
                     </section>
                 </section>
@@ -425,8 +479,9 @@
 <!-- 3. History of CSS / W3C -->
                 <section>
                     <section>
-                        <h2>A Brief History</h2>
+                        <h2>A Brief History of CSS</h2>
                         <aside class='notes'>
+                            * In order to understand how the W3C Recommendation process works, it's helpful to take a look at the history of CSS.
                             * The specification process has historically taken longer to finalize with each version of CSS.
                             * Here's a brief history.
                         </aside>
@@ -435,7 +490,7 @@
                     <section>
                         <ul>
                             <li>1990 First web page &amp; web browser</li>
-                            <li>1994 The W3C is formed ot help shape standards on the web</li>
+                            <li>1994 The W3C is formed to help shape standards on the web</li>
                             <li>1995 CSS1 First public working draft</li>
                             <li>1996 CSS1 Recommendation</li>
                             <li>1997 CSS2 First public working draft</li>
@@ -443,6 +498,7 @@
                             <li>2000 CSS3 Roadmap</li>
                             <li>2002 CSS2 Revision 1 Working draft</li>
                             <li>2011 CSS2 Revision 1 Recommendation</li>
+                            <li>2011 Regions and Exclusions first public working drafts</li>
                         </ul>
                         <!--(a data visualization here would be super cool)-->
                         <aside class='notes'>
@@ -493,6 +549,9 @@
                             <li class='fragment'>Are currently in the Working Draft stage</li>
                             <li class='fragment'>with experimental implementations in IE / WebKit</li>
                         </ul>
+                        <aside class='notes'>
+                            * As an example of the two moving forward together
+                        </aside>
                     </section>
                 </section>
 
@@ -506,7 +565,7 @@
                     </section>
 
                     <section>
-                        <h2>Complexity</h2>
+                        <h2>Reduce Complexity</h2>
                         <ul>
                             <li class='fragment'>CSS 1 - 24,630 words</li>
                             <li class='fragment'>CSS 2 - 92,050 words</li>
@@ -533,7 +592,10 @@
                     </section>
 
                     <section>
-                        (how many standards does CSS3 have?)
+                        <img src='resources/csswg-current-work.png' alt='CSSWG Current Work' class='plain'/>
+                        <aside class='notes'>
+                            * 50+ specs under 'current work' for CSS and the W3C.
+                        </aside>
                     </section>
 
                     <section>
@@ -621,7 +683,7 @@
                             <h2 class='monospace regex middle'>A<br/><!--
                             --> N<br/><!--
                             -->  D<br/></h2>
-                            <h2 class='monospace regex right'>EXCL<!--
+                            <h2 class='monospace regex right'>EXCL<br/><!--
                             -->USI<br/><!--
                             -->ON<br/><!--
                             -->S</h2>
@@ -724,7 +786,7 @@
 <!-- 7. You don't have to wait on the spec -->
                 <section>
                     <section>
-                        <h2>The web isn't standing still</h2>
+                        <h2>Standards aren't standing still</h2>
                         <aside class='notes'>
                             * Just because it's not a recommendation yet, or even a specification, doesn't mean there
                             * isn't something out there on the web.
@@ -891,7 +953,6 @@
 <!-- 10. Living Standards -->
                 <section>
                     <section>
-                        (little sappy, let's make it more factual)
                         <h2>Standards bodies help guide the web forward</h2>
                     </section>
                     <section>
