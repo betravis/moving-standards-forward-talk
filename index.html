@@ -82,208 +82,7 @@
                     </aside>
                 </section>
 
-<!-- 1. Regions and Exclusions - History & Overview -->
-                <section>
-                    <section>
-                        <h2>The Evolution of Text Layout</h2>
-                        <aside class='notes'>
-                            * (Adobe is working on a couple web standards dealing with text layout)
-                            * (I want to talk a bit about the history of text layout)
-                            * Two of the specifications Adobe is working on, Regions and Exclusions, deal with making complicated layouts on the web easier.
-                            * I figured it might be helpful to provide a framework for this discussion in terms of historical text layout.
-                        </aside>
-                    </section>
-                    <section>
-                        <img class='plain' src='resources/herculaneum.png' alt='scroll' />
-                        <aside class='notes'>
-                            * At it's simplest, text fills a line, then moves on to the next line
-                            * It fills up a rectangular space
-                            * In English, a line runs from left to right, and lines are placed from top to bottom
-                            * You need enough scroll area to fit the content
-                        </aside>
-                    </section>
-                    <section>
-                        <img class='plain' src='resources/illuminated-manuscript.jpg' alt='illuminated manuscript' />
-                        <aside class='notes'>
-                            * As content grows longer, authors may begin to tinker with how it lays out.
-                            * For example, this illuminated manuscript runs text through two columns
-                            * And avoids this fish-shaped area in the center
-                        </aside>
-                    </section>
-                    <section>
-                        <img class='plain' src='resources/codex.jpg' alt='codex' />
-                        <aside class='notes'>
-                            * Eventually, as the page size becomes unwieldy, you can break it up across multiple pages
-                            * Into a book
-                        </aside>
-                    </section>
-                    <section>
-                        <img class='plain' src='resources/beverage_andregraciotti.jpg' alt='magazine layout' />
-                        <small>From <a href='http://www.flickr.com/photos/agraciotti/6800788084/'>Andr&eacute; Graciotti</a></small>
-                        <aside class='notes'>
-                            * These principles are still in use today
-                            * In this magazine layout, we can see article content flowing through multiple areas,
-                            * avoiding multiple complex shapes
-                            * And, of course, paged through a magazine
-                        </aside>
-                    </section>
-                </section>
-
-                <section>
-                    <section>
-                        <h2>On the Web</h2>
-                        <aside class='notes'>
-                            * The web started off pretty heavy on the scroll-model.
-                            * Layout content within one big rectangle, and make that rectangle as long as it needed to be to fit the content.
-                            * But, we're starting to see some experiments with with different layouts.
-                        </aside>
-                    </section>
-                    <section>
-                        <img class='plain' src='resources/simon-foster-design.png' alt='scroll based portfolio' />
-                        <p>
-                            <small>Source: <a href='http://simonfosterdesign.com'>simonfosterdesign.com</a></small>
-                        </p>
-                    </section>
-                    <section>
-                        <img class='plain' src='resources/tvsafety.png' alt='circular content' />
-                        <small>Source: <a href='http://tvsafety.org'>tvsafety.org</a></small>
-                    </section>
-                    <section>
-                        <img class='plain' src='resources/thegreatdiscontent.png' />
-                        <small>Source: <a href='http://thegreatdiscontent.com'>The Great Discontent</a></small>
-                    </section>
-                    <section>
-                        <h2>but it's still hard</h2>
-                    </section>
-
-                    <section>
-                        <div class='comment bottom'>
-                            <div class='content'>
-                                <img src='resources/alice-nowrap.png' class='plain' alt='browser display' />
-                            </div><br/>
-                            <div class='icon icon-laptop'></div>
-                        </div>
-                        <aside class='notes'>
-                            * One of the new challenges with computers, and the web, is that
-                            * in order to get a desired effect, you have to describe it so
-                            * the computer can display it.
-                            * And that means describing it to a computer.
-                        </aside>
-                    </section>
-
-                    <section>
-                        <div class='comment bottom'>
-                            <div class='content'><pre><code class='css'><!--
-                            -->.content:before {<br/><!--
-                            -->  display:block;<br/><!--
-                            -->  float:left;<br/><!--
-                            -->  width:240px;<br/><!--
-                            -->  height:280px;<br/><!--
-                            -->  background:url(...);<br/><!--
-                            -->}<!--
-                            --></code></pre>
-                            </div><br/>
-                            <div class='icon icon-user'></div>
-                        </div>
-                        <aside class='notes'>
-                            * In a language the computer can understand.
-                            * And some things don't translate easily.
-                        </aside>
-                    </section>
-
-                    <section>
-                        <div class='comment bottom'>
-                            <div class='content'>
-                                <img src='resources/alice-wrap.png' class='plain' alt='browser display' />
-                            </div><br/>
-                            <div class='icon icon-laptop'></div>
-                        </div>
-                    </section>
-
-                    <section>
-                        <div class='comment bottom'>
-                            <div class='content'>
-                                <h2>???</h2>
-                            </div><br/>
-                            <div class='icon icon-user'></div>
-                        </div>
-                        <aside class='notes'>
-                            * In a language the computer can understand.
-                            * And some things don't translate easily.
-                        </aside>
-                    </section>
-                </section>
-
-                <section>
-                    <section>
-                        <h2>Regions and Exclusions</h2>
-                        <h3>Extending the language</h3>
-                        <aside class='notes'>
-                            * We would like to extend the language, so that some complex layouts
-                            * Are easier to describe
-                        </aside>
-                    </section>
-                    <section>
-                        <h2>Regions</h2>
-                        <aside class='notes'>
-                            * We're hoping to make this easier with regions and exclusions.
-                            * Regions is a feature that allows you to define areas to flow content through.
-                        </aside>
-                    </section>
-                    <section>
-                        <img class='plain' src='resources/css-regions.png' />
-                        <aside class='notes'>
-                            * In this diagram, you can see two pieces of content flowing through two different sets of regions.
-                            * The first set of content flows through regions 1, 2, 3, and 4.
-                            * The second, regions a and b.
-                        </aside>
-                    </section>
-                    <section>
-                        <pre><code class='css'><!--
-                        -->.content { flow-into: story-flow; } <br/><!--
-                        -->.region  { flow-from: story-flow; }<!--
-                        --></code></pre>
-                        <aside class='notes'>
-                            * The markup would look something like this.
-                            * We take some content, and put it into a flow.
-                            * And then we specify that our regions should lay out content from that flow.
-                        </aside>
-                    </section>
-                </section>
-
-                <section>
-                    <section>
-                        <h2>Exclusions</h2>
-                        <aside class='notes'>
-                            * While regions specify containers to flow content through,
-                            * Exclusions specify how you can customize the shapes of those containers
-                            * As content wraps inside and around them.
-                        </aside>
-                    </section>
-                    <section>
-                        <img class='plain' src='resources/css-exclusions.png' />
-                        <aside class='notes'>
-                            * For example, we can wrap content inside and around a circular shape.
-                            * Similar to what we saw on the tvsafety site.
-                        </aside>
-                    </section>
-                    <section>
-                        <pre><code class='css'><!--
-                        -->.circle { <br/><!--
-                        -->    wrap-flow: end; <br/> <!--
-                        -->    shape-outside: circle(50%, 50%, 50%); <br/> <!--
-                        -->    shape-inside: outside-shape; <br/> <!--
-                        -->}<!--
-                        --></code></pre>
-                        <aside class='notes'>
-                            * We specify that we want content to wrap on the end (or right) side
-                            * Respecting a circle that is centered at 50%, 50%, with a 50% radius
-                            * And content inside the block should respect the same shape as content outside.
-                        </aside>
-                    </section>
-                </section>
-
-<!-- 2. What exactly is a standard? -->
+<!-- 1. What exactly is a standard? -->
                 <section>
                     <section>
                         <h2>What is a Web Standard?</h2>
@@ -551,6 +350,207 @@
                         </ul>
                         <aside class='notes'>
                             * As an example of the two moving forward together
+                        </aside>
+                    </section>
+                </section>
+
+<!-- 1. Regions and Exclusions - History & Overview -->
+                <section>
+                    <section>
+                        <h2>The Evolution of Text Layout</h2>
+                        <aside class='notes'>
+                            * (Adobe is working on a couple web standards dealing with text layout)
+                            * (I want to talk a bit about the history of text layout)
+                            * Two of the specifications Adobe is working on, Regions and Exclusions, deal with making complicated layouts on the web easier.
+                            * I figured it might be helpful to provide a framework for this discussion in terms of historical text layout.
+                        </aside>
+                    </section>
+                    <section>
+                        <img class='plain' src='resources/herculaneum.png' alt='scroll' />
+                        <aside class='notes'>
+                            * At it's simplest, text fills a line, then moves on to the next line
+                            * It fills up a rectangular space
+                            * In English, a line runs from left to right, and lines are placed from top to bottom
+                            * You need enough scroll area to fit the content
+                        </aside>
+                    </section>
+                    <section>
+                        <img class='plain' src='resources/illuminated-manuscript.jpg' alt='illuminated manuscript' />
+                        <aside class='notes'>
+                            * As content grows longer, authors may begin to tinker with how it lays out.
+                            * For example, this illuminated manuscript runs text through two columns
+                            * And avoids this fish-shaped area in the center
+                        </aside>
+                    </section>
+                    <section>
+                        <img class='plain' src='resources/codex.jpg' alt='codex' />
+                        <aside class='notes'>
+                            * Eventually, as the page size becomes unwieldy, you can break it up across multiple pages
+                            * Into a book
+                        </aside>
+                    </section>
+                    <section>
+                        <img class='plain' src='resources/beverage_andregraciotti.jpg' alt='magazine layout' />
+                        <small>From <a href='http://www.flickr.com/photos/agraciotti/6800788084/'>Andr&eacute; Graciotti</a></small>
+                        <aside class='notes'>
+                            * These principles are still in use today
+                            * In this magazine layout, we can see article content flowing through multiple areas,
+                            * avoiding multiple complex shapes
+                            * And, of course, paged through a magazine
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>On the Web</h2>
+                        <aside class='notes'>
+                            * The web started off pretty heavy on the scroll-model.
+                            * Layout content within one big rectangle, and make that rectangle as long as it needed to be to fit the content.
+                            * But, we're starting to see some experiments with with different layouts.
+                        </aside>
+                    </section>
+                    <section>
+                        <img class='plain' src='resources/simon-foster-design.png' alt='scroll based portfolio' />
+                        <p>
+                            <small>Source: <a href='http://simonfosterdesign.com'>simonfosterdesign.com</a></small>
+                        </p>
+                    </section>
+                    <section>
+                        <img class='plain' src='resources/tvsafety.png' alt='circular content' />
+                        <small>Source: <a href='http://tvsafety.org'>tvsafety.org</a></small>
+                    </section>
+                    <section>
+                        <img class='plain' src='resources/thegreatdiscontent.png' />
+                        <small>Source: <a href='http://thegreatdiscontent.com'>The Great Discontent</a></small>
+                    </section>
+                    <section>
+                        <h2>but it's still hard</h2>
+                    </section>
+
+                    <section>
+                        <div class='comment bottom'>
+                            <div class='content'>
+                                <img src='resources/alice-nowrap.png' class='plain' alt='browser display' />
+                            </div><br/>
+                            <div class='icon icon-laptop'></div>
+                        </div>
+                        <aside class='notes'>
+                            * One of the new challenges with computers, and the web, is that
+                            * in order to get a desired effect, you have to describe it so
+                            * the computer can display it.
+                            * And that means describing it to a computer.
+                        </aside>
+                    </section>
+
+                    <section>
+                        <div class='comment bottom'>
+                            <div class='content'><pre><code class='css'><!--
+                            -->.content:before {<br/><!--
+                            -->  display:block;<br/><!--
+                            -->  float:left;<br/><!--
+                            -->  width:240px;<br/><!--
+                            -->  height:280px;<br/><!--
+                            -->  background:url(...);<br/><!--
+                            -->}<!--
+                            --></code></pre>
+                            </div><br/>
+                            <div class='icon icon-user'></div>
+                        </div>
+                        <aside class='notes'>
+                            * In a language the computer can understand.
+                            * And some things don't translate easily.
+                        </aside>
+                    </section>
+
+                    <section>
+                        <div class='comment bottom'>
+                            <div class='content'>
+                                <img src='resources/alice-wrap.png' class='plain' alt='browser display' />
+                            </div><br/>
+                            <div class='icon icon-laptop'></div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class='comment bottom'>
+                            <div class='content'>
+                                <h2>???</h2>
+                            </div><br/>
+                            <div class='icon icon-user'></div>
+                        </div>
+                        <aside class='notes'>
+                            * In a language the computer can understand.
+                            * And some things don't translate easily.
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Regions and Exclusions</h2>
+                        <h3>Extending the language</h3>
+                        <aside class='notes'>
+                            * We would like to extend the language, so that some complex layouts
+                            * Are easier to describe
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Regions</h2>
+                        <aside class='notes'>
+                            * We're hoping to make this easier with regions and exclusions.
+                            * Regions is a feature that allows you to define areas to flow content through.
+                        </aside>
+                    </section>
+                    <section>
+                        <img class='plain' src='resources/css-regions.png' />
+                        <aside class='notes'>
+                            * In this diagram, you can see two pieces of content flowing through two different sets of regions.
+                            * The first set of content flows through regions 1, 2, 3, and 4.
+                            * The second, regions a and b.
+                        </aside>
+                    </section>
+                    <section>
+                        <pre><code class='css'><!--
+                        -->.content { flow-into: story-flow; } <br/><!--
+                        -->.region  { flow-from: story-flow; }<!--
+                        --></code></pre>
+                        <aside class='notes'>
+                            * The markup would look something like this.
+                            * We take some content, and put it into a flow.
+                            * And then we specify that our regions should lay out content from that flow.
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Exclusions</h2>
+                        <aside class='notes'>
+                            * While regions specify containers to flow content through,
+                            * Exclusions specify how you can customize the shapes of those containers
+                            * As content wraps inside and around them.
+                        </aside>
+                    </section>
+                    <section>
+                        <img class='plain' src='resources/css-exclusions.png' />
+                        <aside class='notes'>
+                            * For example, we can wrap content inside and around a circular shape.
+                            * Similar to what we saw on the tvsafety site.
+                        </aside>
+                    </section>
+                    <section>
+                        <pre><code class='css'><!--
+                        -->.circle { <br/><!--
+                        -->    wrap-flow: end; <br/> <!--
+                        -->    shape-outside: circle(50%, 50%, 50%); <br/> <!--
+                        -->    shape-inside: outside-shape; <br/> <!--
+                        -->}<!--
+                        --></code></pre>
+                        <aside class='notes'>
+                            * We specify that we want content to wrap on the end (or right) side
+                            * Respecting a circle that is centered at 50%, 50%, with a 50% radius
+                            * And content inside the block should respect the same shape as content outside.
                         </aside>
                     </section>
                 </section>
