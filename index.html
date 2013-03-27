@@ -337,13 +337,31 @@
                             <li class='fragment'>Community</li>
                         </ul>
                     </section>
+
+                    <section>
+                        <h2>CSS Grid Layout</h2>
+                        <p class='monospace'>#container { display: grid; }</p>
+                    </section>
+
+                    <section class='align-left'>
+                        <h2 class='monospace'>FLEX C O L S</h2>
+                        <h2 class='monospace' style='-webkit-transform:scaleY(1.5)'>FLEX R O W S</h2>
+                        <p class='monospace'>{ grid-column-definition: auto 1fr;</p>
+                        <p class='monospace pre'>  grid-row-definition: auto 1fr; }</p>
+                    </section>
+
+                    <section>
+                        <img class='plain' src='resources/golden-grid.png' />
+                        <p><small><a href='http://goldengridsystem.com'>The Golden Grid System</a></small></p>
+                    </section>
+
+                    <section class='align-left'>
+                        <h2>Line Based Placement</h2>
+                        <p class='monospace'>{ grid-start: 3; grid-end: span 3; }</p>
+                    </section>
                 </section>
 
                 <section>
-                    <section>
-                        <h2>How do we make standards faster</h2>
-                    </section>
-
                     <section>
                         <h2>What is a Standard?</h2>
                         <ul>
@@ -356,6 +374,10 @@
                         </aside>
                     </section>
 
+                    <section>
+                        <h2>Where should we focus?</h2>
+                    </section>
+                    
                     <section>
                         <h2>Is it a Standard?</h2>
                         <aside class='notes'>
@@ -437,7 +459,8 @@
 <!-- 3. History of CSS / W3C -->
                 <section>
                     <section>
-                        <h2>A Brief History of CSS</h2>
+                        <h2><i class='icon-book'></i> History</h2>
+                        <h3>Standards with Perspective</h3>
                         <aside class='notes'>
                             * To understand what exactly a standard is, it's helpful to see how the CSS standard developed in the past
                             * In order to understand how the W3C Recommendation process works, it's helpful to take a look at the history of CSS.
@@ -523,12 +546,16 @@
 <!-- 5. Regions and Exclusions - History & Overview -->
                 <section>
                     <section>
-                        <h2>Moving Text Layout Forward</h2>
+                        <h2>Building a Modern Standard</h2>
                         <aside class='notes'>
-                            * (Adobe is working on a couple web standards dealing with text layout)
-                            * (I want to talk a bit about the history of text layout)
-                            * Two of the specifications Adobe is working on, Regions and Exclusions, deal with making complicated layouts on the web easier.
-                            * I figured it might be helpful to provide a framework for this discussion in terms of historical text layout.
+                            * How do you go about building a modern standard?
+                            * You need to do some thinking about what people want on the web.
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Text Layout</h2>
+                        <aside class='notes'>
+                            * One of the areas Adobe thought it could offer some improvements was in text layout
                         </aside>
                     </section>
                     <section>
@@ -733,10 +760,11 @@
                         <p><a href='demos/mousetail.html'>The Mouse's Tale</a></p>
                     </section>
                 </section>
+
 <!-- 5. Speed up standards with modules -->
                 <section>
                     <section>
-                        <h2>Breaking Down Standards</h2>
+                        <h2>Faster Specifications</h2>
                         <aside class='notes'>
                             * So how can we make sure standards move forward faster?
                         </aside>
@@ -897,12 +925,20 @@
                     <section>
                         <h2>Regions and</h2>
                         <div class='show-container'>
-                            <h2 class='show-container monospace inverse'>M<br/>U<br/>L</h2>
-                            <h2 class='show-container monospace inverse'>T<br/>I<br/>C</h2>
-                        </div>
+                            <h2 class='show-container monospace inverse'>M</h2>
+                            <h2 class='show-container monospace inverse'>U</h2>
+                            <h2 class='show-container monospace inverse'>L</h2>
+                            <h2 class='show-container monospace inverse'>T</h2>
+                            <h2 class='show-container monospace inverse'>I</h2>
+                            <h2 class='show-container monospace inverse'>-</h2>
+                        </div><br/>
                         <div class='show-container'>
-                            <h2 class='show-container monospace inverse'>O<br/>L<br/>U</h2>
-                            <h2 class='show-container monospace inverse'>M<br/>N<br/><br/></h2>
+                            <h2 class='show-container monospace inverse'>C</h2>
+                            <h2 class='show-container monospace inverse'>O</h2>
+                            <h2 class='show-container monospace inverse'>L</h2>
+                            <h2 class='show-container monospace inverse'>U</h2>
+                            <h2 class='show-container monospace inverse'>M</h2>
+                            <h2 class='show-container monospace inverse'>N</h2>
                         </div>
                         <aside class='notes'>
                             * Or, looking at regions combined with multicolumn. It would be nice to combine the two.
@@ -912,14 +948,17 @@
 
                     <section>
                         <h2>Regions and</h2>
-                        <div class='show-container'>
-                            <h2 class='show-container monospace inverse'>M<br/>U<br/>L</h2>
-                            <h2 class='show-container monospace inverse'>O<br/>L<br/>U</h2>
+                        <div class='show-container' style='position:relative;border:0'>
+                            <h2 class='show-container monospace inverse'>M<br/><br/>U</h2>
+                            <h2 class='show-container monospace inverse'>L<br/><br/>T</h2>
+                            <h2 class='show-container monospace inverse'>I<br/><br/>-</h2>
+                            <h2 class='show-container monospace inverse'>C<br/><br/>O</h2>
+                            <h2 class='show-container monospace inverse'>L<br/><br/>U</h2>
+                            <h2 class='show-container monospace inverse'>M<br/><br/>N</h2>
+                            <div class='show-container' style='position:absolute;left:0;top:0;right:0;bottom:50%'></div>
+                            <div class='show-container' style='position:absolute;left:0;top:50%;right:0;bottom:0'></div>
                         </div>
-                        <div class='show-container'>
-                            <h2 class='show-container monospace inverse'>T<br/>I<br/>C</h2>
-                            <h2 class='show-container monospace inverse'>M<br/>N<br/><br/></h2>
-                        </div>
+
                         <aside class='notes'>
                             * But how, exactly, should this lay out?
                             * If you just put multicolumn on the content, it will lay out as one continuous block.
@@ -928,76 +967,12 @@
                             * It could be a mess. Unless we account for it in the spec.
                         </aside>
                     </section>
-
-                    <section>
-                        <h2>Exclusions and</h2>
-                        <div class='show-container' style='border-radius:50%'>
-                            <h2 class='show-container inverse monospace'>FL</h2>
-                            <h2 class='show-container inverse monospace'>EX</h2><br/>
-                            <h2 class='show-container inverse monospace'>BO</h2>
-                            <h2 class='show-container inverse monospace'>X </h2>
-                        </div>
-                        <aside class='notes'>
-                            * Or, say you're working with FlexBox, which allows you to specify how blocks lay out and wrap.
-                            * Here we've got them laying out left to right, top to bottom.
-                            * What if you want to wrap these in a circular shape inside?
-                            * Well, this can get tricky because flex boxes establish their own block formatting context.
-                            * There are optimizations in place assuming that this can be laid out and painted on its own.
-                            * So we need to consider whether we should allow shape insides across block formatting contexts.
-                        </aside>
-                    </section>
-
-                    <section>
-                        <h2>Web Components</h2>
-                        <div class='show-container'>
-                            <h2 class='show-container monospace inverse' style='float: left; margin-right: .25em'>A<br/>N<br/>D</h2>
-                            <h2 class='show-container monospace inverse'>REG-</h2><br/>
-                            <h2 class='show-container monospace inverse'>IONS</h2>
-                        </div>
-                        <aside class='notes'>
-                            * Or, folks might want to use web components to specify a layout template for their content.
-                            * It's important that we make sure this works, both in the spec and implementation.
-                        </aside>
-                    </section>
-                </section>
-
-<!-- 7. You don't have to wait on the spec -->
-                <section>
-                    <section>
-                        <h2>Standards aren't standing still</h2>
-                        <aside class='notes'>
-                            * Just because it's not a recommendation yet, or even a specification, doesn't mean there
-                            * isn't something out there on the web.
-                            * It's all about building what you need.
-                            * And as features standardize, what's really important
-                        </aside>
-                    </section>
-                    <section>
-                        <div class='comment'>
-                            <h2 class='icon icon-user'></h2>
-                            <div class='content monospace'>{ shape-inside:<br/><!--
-                            -->  circle(...); }</div>
-                        </div>
-                        <div class='comment right'>
-                            <div class='content'>
-                                <div class='show-container monospace'>C O<br/><!--
-                                    -->N T E<br/><!--
-                                    -->N T<!--
-                                --></div>
-                            </div>
-                            <h2 class='icon icon-laptop'></h2>
-                        </div>
-                        <aside class='notes'>
-                            * Is being able to provide the markup
-                            * And have the browser translate it into what you want presented to the user.
-                        </aside>
-                    </section>
                 </section>
 
 <!-- 8. Native -->
                 <section>
                     <section>
-                        <h2>Evolving Browsers</h2>
+                        <h2>Faster Implementations</h2>
                         <aside class='notes'>
                             * As I mentioned before, browsers aren't waiting for specs to finalize to start implementing functionality.
                             * They are continuously working on new features, even some that may still be experimental.
@@ -1125,6 +1100,39 @@
                             <li><a href='https://github.com/dglazkov/Web-Components-Polyfill'>Web Components</a></li>
                             <li><a href='https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills'>and more</a>...</li>
                         </ul>
+                    </section>
+                </section>
+
+<!-- 9. You don't have to wait on the spec -->
+                <section>
+                    <section>
+                        <h2>Standards aren't standing still</h2>
+                        <aside class='notes'>
+                            * Just because it's not a recommendation yet, or even a specification, doesn't mean there
+                            * isn't something out there on the web.
+                            * It's all about building what you need.
+                            * And as features standardize, what's really important
+                        </aside>
+                    </section>
+                    <section>
+                        <div class='comment'>
+                            <h2 class='icon icon-user'></h2>
+                            <div class='content monospace'>{ shape-inside:<br/><!--
+                            -->  circle(...); }</div>
+                        </div>
+                        <div class='comment right'>
+                            <div class='content'>
+                                <div class='show-container monospace'>C O<br/><!--
+                                    -->N T E<br/><!--
+                                    -->N T<!--
+                                --></div>
+                            </div>
+                            <h2 class='icon icon-laptop'></h2>
+                        </div>
+                        <aside class='notes'>
+                            * Is being able to provide the markup
+                            * And have the browser translate it into what you want presented to the user.
+                        </aside>
                     </section>
                 </section>
 
