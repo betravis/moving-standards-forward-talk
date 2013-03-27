@@ -146,6 +146,13 @@ $selectionBackgroundColor: #134674;
     max-height: 400px;
 }
 
+img.float-right {
+    position: absolute;
+    right: -100px;
+    top: -100px;
+    max-height: 400px;
+}
+
 /* Color Schemes */
 $carpetRed: rgb(230, 63, 79);
 .bg-red .reveal {
@@ -176,6 +183,10 @@ $carpetRed: rgb(230, 63, 79);
         background-position: left bottom;
         @include vendor-prefix(transition, none);
     }
+}
+
+.gradient .reveal .state-background {
+    background: -webkit-linear-gradient(bottom left, lighten($backgroundColor, 30%), $backgroundColor);
 }
 
 .reveal {
@@ -252,4 +263,19 @@ $carpetRed: rgb(230, 63, 79);
     @include vendor-prefix(perspective, 0);
     line-height: 1;
     vertical-align: baseline;
+}
+
+.reveal {
+    .green, .orange, .red { display: inline-block; border-radius: .1em; padding: .1em; }
+}
+.reveal .green {
+    background-color: #718C44;
+}
+
+.reveal .orange {
+    background-color: #e89041;
+}
+
+.reveal .red {
+    background-color: #b2382d;
 }

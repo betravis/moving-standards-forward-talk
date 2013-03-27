@@ -93,6 +93,10 @@
                     </section>
 
                     <section>
+                        (insert poll here)
+                    </section>
+
+                    <section>
                         <blockquote>
                             Web standards are technologies, established by the W3C and other standards bodies, that are used to create and interpret web-based content. These technologies are designed to future-proof documents published on the Web and to make those documents accessible to as many people and devices as possible.
                         </blockquote>
@@ -108,6 +112,10 @@
                     </section>
 
                     <section>
+                        <h2>The Web is Viewed By</h2>
+                    </section>
+
+                    <section>
                         <h2>Different People</h2>
                         <h2>
                             <i class='icon-group'></i>
@@ -120,7 +128,7 @@
                     </section>
 
                     <section>
-                        <h2>Different Devices</h2>
+                        <h2>On Different Devices</h2>
                         <h2>
                             <i class='icon-desktop'></i>
                             <i class='icon-tablet'></i>
@@ -129,8 +137,9 @@
                         <aside class='notes'>
                         </aside>
                     </section>
+
                     <section>
-                        <h2>Different Browsers</h2>
+                        <h2>Using Different Browsers</h2>
                         <div class='ribbon'>
                             <img src='resources/chrome-512.png' />
                             <img src='resources/firefox-512.png' />
@@ -144,6 +153,140 @@
                             * Is for everyone to agree on a meaning, largely meaning the web browsers
                             * At the end of the day, though, what you want is to be able to use a feature
                             * And that means a feature being reliably implemented across browsers
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>Authors don't control how content will be viewed</h2>
+                        <aside class='notes'>
+                            * More so than many other types of development, the author doesn't control the environment
+                            * where their content will be viewed.
+                            * Personally, I tend to use Chrome on a Mac, but if I develop for the web, generally not
+                            * considered kosher to say 'you have to use Chrome on a Mac'.
+                            * Which is different, than say, native development for Android of iOS.
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>What happens when you don't have standards?</h2>
+                        <!-- https://developer.mozilla.org/en-US/docs/DOM/element.addEventListener -->
+                        <pre><code class='javascript'><!--
+                        -->// CR 1+, FF 1+, IE 9+, O 7+, S 1+ <br/><!--
+                        -->if (el.addEventListener) <br/><!--
+                        -->    el.addEventListener('click', <br/><!--
+                        -->         clickHandler, false); <br/><!--
+                        -->// IE &lt; 9 <br/><!--
+                        -->else if (el.attachEvent) <br/><!--
+                        -->     el.attachEvent('onclick', <br/><!--
+                        -->         clickHandler); <br/><!--
+                        --></code></pre>
+                        <p class='fragment'>9% of your audience uses IE &lt; 9</p>
+                        <!-- 8.75% from http://stats.wikimedia.org/archive/squid_reports/2013-02/SquidReportClients.htm -->
+                        <aside class='notes'>
+                            * When implementations are not standardized, you may wind up
+                            * with multiple different ways of doing the same thing.
+                            * And needing to write different paths for things to work.
+                        </aside>
+                    </section>
+
+                    <section data-state='gradient'>
+                        <h2>When standards come late</h2>
+                        <!-- https://developer.mozilla.org/en-US/docs/CSS/linear-gradient#History_of_the_syntax -->
+                        <pre><code class='css'>.gradient { ... }</code></pre>
+                        <!-- example from http://css-tricks.com/css3-gradients/ -->
+                        <aside class='notes'>
+                            * When standards don't surface fast enough, browsers may start going off into the weeds
+                        </aside>
+                    </section>
+
+                    <section>
+                        <pre><code class='css'>.gradient {<br/><!--
+                        --><span class='fragment'>-ms-</span>filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#ffffff, endColorstr=#000000);<br/><!--
+                        -->}</code></pre>
+                        <small>Internet Explorer 6+</small>
+                        <aside class='notes'>
+                            * IE as far back as 6 introduced a non-standard method of doing gradients
+                            * But the property wasn't considered valid until 8, when the ms prefix was added
+                        </aside>
+                    </section>
+
+                    <section>
+                        <pre><code class='css'>.gradient {<br/><!--
+                        -->background-image: -webkit-gradient(linear,<br/><!--
+                        -->    0% 0%, 0% 100%,<br/><!--
+                        -->    from(white), to(black));<br/><!--
+                        -->}</code></pre>
+                        <small>Safari 4+, Chrome 1-9</small>
+                        <aside class='notes'>
+                            * Apple came up with a proposal they implemented in WK in 2008
+                            * Not submitted to the W3C
+                        </aside>
+                    </section>
+
+                    <section>
+                        <pre><code class='css'>.gradient {<br/><!--
+                        -->background-image: -webkit-linear-gradient(<br/><!--
+                        -->    top, white, black);<br/><!--
+                        -->background-image: -moz-linear-gradient();<br/><!--
+                        -->background-image: -ms-linear-gradient();<br/><!--
+                        -->background-image: -o-linear-gradient();<br/><!--
+                        -->}</pre></code>
+                        <small>CR 10+, S 5.1+, FF 3.6+, IE 10+, O 11.1+</small><br/>
+                        <small class='fragment'>Still missing &gt; 17% of the market</small>
+                        <aside class='notes'>
+                            * Finally, Mozilla came up with a proposal to the W3C in 2009, that evolved into
+                            * the following syntax.
+                            * But, we still have several legacy syntaxes, which browsers may rely on
+                            * And to get it to work on every browser, might require using all of these (ick)
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>If standards take too long</h2>
+                        <img class='plain' style='height:6em' src='resources/ghost.svg' />
+                        <p class='fragment'>Quirks Mode</p>
+                        <p class='fragment'>Legacy Browsers</p>
+                        <aside class='notes'>
+                            * When standards take too long, you start running into problems
+                            * Having to maintain legacy behavior in future browsers
+                            * Or having non-standards compliant browsers
+                            * Which nobody likes
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>Standards are</h2>
+                    </section>
+
+                    <section>
+                        <div class='comment bottom'>
+                            <div class='content'><pre><code class='css'><!--
+                            -->.content:before {<br/><!--
+                            -->  display:block;<br/><!--
+                            -->  float:left;<br/><!--
+                            -->  width:240px;<br/><!--
+                            -->  height:280px;<br/><!--
+                            -->  background:url(...);<br/><!--
+                            -->}<!--
+                            --></code></pre>
+                            </div><br/>
+                            <div class='icon icon-user'></div>
+                        </div>
+                        <aside class='notes'>
+                            * Being able to write markup (once)
+                        </aside>
+                    </section>
+
+                    <section>
+                        <div class='comment bottom'>
+                            <div class='content'>
+                                <img src='resources/alice-nowrap.png' class='plain' alt='browser display' />
+                            </div><br/>
+                            <div class='icon icon-laptop'></div>
+                        </div>
+                        <aside class='notes'>
+                            * And have it reliably display to the end user
+                            * Across people, devices, browsers, future
                         </aside>
                     </section>
                 </section>
@@ -173,11 +316,11 @@
 
                     <section>
                         <h2>The W3C Process</h2>
-                        <p>Working Draft</p>
+                        <p class='red'>Working Draft</p>
                         <p><i class='icon-arrow-down'></i></p>
-                        <p>Candidate Recommendation</p>
+                        <p class='orange'>Candidate Recommendation</p>
                         <p><i class='icon-arrow-down'></i></p>
-                        <p>Recommendation</p>
+                        <p class='green'>Recommendation</p>
                         <aside class='notes'>
                             * The W3C recommendation process takes a specification through three major steps
                             * A 'working draft' stage where the specification is available for public comment and can undergo significant revisions.
@@ -185,43 +328,31 @@
                             * A 'recommendation' stage, where the specification has been finalized.
                         </aside>
                     </section>
+
+                    <section>
+                        <h2>Who takes part in the W3C Process?</h2>
+                        <ul>
+                            <li class='fragment'>Specification Authors</li>
+                            <li class='fragment'>Specification Implementors</li>
+                            <li class='fragment'>Community</li>
+                        </ul>
+                    </section>
                 </section>
 
                 <section>
                     <section>
+                        <h2>How do we make standards faster</h2>
+                    </section>
+
+                    <section>
                         <h2>What is a Standard?</h2>
+                        <ul>
+                            <li class='fragment'>Is it what is available in browsers?</li>
+                            <li class='fragment'>Is it what has a specification?</li>
+                        </ul>
                         <aside class='notes'>
-                            * So let's revisit what exactly a standard is
-                        </aside>
-                    </section>
-
-                    <section>
-                        <div class='comment bottom'>
-                        <div class='content'><pre><code class='css'><!--
-                        -->.circle {<br/><!--
-                        -->  wrap-flow: end;<br/><!--
-                        -->  shape-outside: circle(...);<br/><!--
-                        -->  shape-inside: outside-shape;<br/><!--
-                        -->}<!--
-                        --></code></pre>
-                        </div><br/>
-                        <div class='icon icon-user'></div>
-                        </div>
-                        <aside class='notes'>
-                            * A content author being able to write this...
-                        </aside>
-                    </section>
-
-                    <section>
-                        <div class='comment bottom'>
-                            <div class='content'>
-                                <img src='resources/css-exclusions.png' class='plain' alt='exclusions' />
-                            </div><br/>
-                            <div class='icon icon-laptop'></div>
-                        </div>
-                        <aside class='notes'>
-                            * and expect browsers to render this
-                            * for some definition of 'expect'
+                            * So let's revisit what exactly a standard is.
+                            * Where we push depends on how we define standards.
                         </aside>
                     </section>
 
@@ -237,8 +368,17 @@
                         <h2>Media Queries</h2>
                         <pre><code class='css'>@media screen and (max-width: 600px) { }</code></pre>
                         <ul>
-                            <li>Browser Support: <span class='fragment'>Very Good</span></li>
-                            <li>W3C Status: <span class='fragment'>(Rec 2012.06.19)</span></li>
+                            <li>
+                                <p>Browser Support:</p>
+                                <p class='fragment'><span class='green'>Very Good</span>. Just avoid IE &lt; 9.</p>
+                            </li>
+                            <li>
+                                <p>W3C Status:</p>
+                                <div class='fragment rec'>
+                                    <p>Media Queries</p>
+                                    <p>(<span class='green'>Recommendation</span> 2012.06.19)
+                                </div>
+                            </li>
                         </ul>
                         <aside class='notes'>
                             * CSS Media Queries
@@ -248,11 +388,21 @@
 
                     <section>
                         <h2>Gradients</h2>
-<pre><code class='css'>background-image:
-    linear-gradient(bottom, white, black);</code></pre>
+                        <pre><code class='css'>.gradient{<br/><!--
+                        -->  background-image:<br/><!--
+                        -->    linear-gradient(bottom, white, black);<br/><!--
+                        -->}</code></pre>
                         <ul>
-                            <li>Browser Support: <span class='fragment'>Good</span></li>
-                            <li>W3C Status: <span class='fragment'>(CR 2012.04.17)</span></li>
+                            <li>
+                                <p>Browser Support:</p>
+                                <p class='fragment'><span class='orange'>Good</span>. IE 10+, prefixed in S/CR, not yet in O Mobile</p>
+                            </li>
+                            <li>
+                                <p>W3C Status:</p>
+                                <p class='fragment cr'>
+                                    CSS Image Values and Replaced Content<br/>
+                                    (<span class='orange'>Candidate Recommendation</span> 2012.04.17)</p>
+                            </li>
                         </ul>
                         <aside class='notes'>
                             * CSS Image Values and Replaced Content
@@ -265,8 +415,17 @@
                         <h2>Border Radius</h2>
                         <pre><code class='css'>border-radius: 10px;</code></pre>
                         <ul>
-                            <li>Browser Support: <span class='fragment'>Very Good</span></li>
-                            <li>W3C Status: <span class='fragment'>(CR 2012.07.24)</span></li>
+                            <li>
+                                <p>Browser Support:</p>
+                                <p class='fragment'><span class='green'>Very Good</span>. IE 9+, not yet on Opera Mobile.</p>
+                            </li>
+                            <li>
+                                <p>W3C Status:</p>
+                                <p class='fragment'>
+                                    CSS Backgrounds and Borders<br/>
+                                    (<span class='orange'>Candidate Recommendation</span> 2012.07.24)
+                                </p>
+                                </li>
                         </ul>
                         <aside class='notes'>
                             * CSS Backgrounds and Borders
@@ -280,6 +439,7 @@
                     <section>
                         <h2>A Brief History of CSS</h2>
                         <aside class='notes'>
+                            * To understand what exactly a standard is, it's helpful to see how the CSS standard developed in the past
                             * In order to understand how the W3C Recommendation process works, it's helpful to take a look at the history of CSS.
                             * The specification process has historically taken longer to finalize with each version of CSS.
                             * Here's a brief history.
@@ -297,7 +457,6 @@
                             <li>2000 CSS3 Roadmap</li>
                             <li>2002 CSS2 Revision 1 Working draft</li>
                             <li>2011 CSS2 Revision 1 Recommendation</li>
-                            <li>2011 Regions and Exclusions first public working drafts</li>
                         </ul>
                         <!--(a data visualization here would be super cool)-->
                         <aside class='notes'>
@@ -334,6 +493,7 @@
                             * If specifications get off track, you may wind up with a document that no one implements.
                         </aside>
                     </section>
+
                     <section>
                         <h2>The W3C helps guide this process</h2>
                         <aside class='notes'>
@@ -342,22 +502,28 @@
                             * It has the odd role of both documenting behaviors today, and brainstorming ideas for tomorrow.
                         </aside>
                     </section>
+
                     <section>
-                        <h2>Regions &amp; Exclusions</h2>
-                        <ul>
-                            <li class='fragment'>Are currently in the Working Draft stage</li>
-                            <li class='fragment'>with experimental implementations in IE / WebKit</li>
-                        </ul>
-                        <aside class='notes'>
-                            * As an example of the two moving forward together
-                        </aside>
+                        <h2>If specification outpaces implementation</h2>
+                        <div class='fragment'>
+                            <img class='plain' src='resources/ghost.svg' style='height:5em' />
+                            <h3>CSS 2.1</h3>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>If implementation outpaces specification</h2>
+                        <div class='fragment'>
+                            <img class='plain' src='resources/ghost.svg' style='height:5em' />
+                            <h3>Filters</h3>
+                        </div>
                     </section>
                 </section>
 
-<!-- 1. Regions and Exclusions - History & Overview -->
+<!-- 5. Regions and Exclusions - History & Overview -->
                 <section>
                     <section>
-                        <h2>The Evolution of Text Layout</h2>
+                        <h2>Moving Text Layout Forward</h2>
                         <aside class='notes'>
                             * (Adobe is working on a couple web standards dealing with text layout)
                             * (I want to talk a bit about the history of text layout)
@@ -542,9 +708,9 @@
                     <section>
                         <pre><code class='css'><!--
                         -->.circle { <br/><!--
-                        -->    wrap-flow: end; <br/> <!--
-                        -->    shape-outside: circle(50%, 50%, 50%); <br/> <!--
-                        -->    shape-inside: outside-shape; <br/> <!--
+                        -->    float: left; <br/><!--
+                        -->    shape-outside: circle(50%, 50%, 50%); <br/><!--
+                        -->    shape-inside: outside-shape; <br/><!--
                         -->}<!--
                         --></code></pre>
                         <aside class='notes'>
@@ -555,10 +721,22 @@
                     </section>
                 </section>
 
+                <section>
+                    <section>
+                        <h2>Demo</h2>
+                        <img class='plain' src='resources/alice-wrap.png' />
+                        <p><a href='demos/alice.html'>Alice in Wonderland</a></p>
+                    </section>
+                    <section>
+                        <h2>Demo</h2>
+                        <img class='plain float-right' src='demos/mousetail.png'/>
+                        <p><a href='demos/mousetail.html'>The Mouse's Tale</a></p>
+                    </section>
+                </section>
 <!-- 5. Speed up standards with modules -->
                 <section>
                     <section>
-                        <h2>How can we build standards faster?</h2>
+                        <h2>Breaking Down Standards</h2>
                         <aside class='notes'>
                             * So how can we make sure standards move forward faster?
                         </aside>
