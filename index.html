@@ -93,10 +93,6 @@
                     </section>
 
                     <section>
-                        (insert poll here)
-                    </section>
-
-                    <section>
                         <blockquote>
                             Web standards are technologies, established by the W3C and other standards bodies, that are used to create and interpret web-based content. These technologies are designed to future-proof documents published on the Web and to make those documents accessible to as many people and devices as possible.
                         </blockquote>
@@ -168,7 +164,87 @@
                     </section>
 
                     <section>
+                        <h2>Standards are</h2>
+                    </section>
+
+                    <section>
+                        <div class='comment bottom'>
+                            <div class='content'><pre><code class='css'><!--
+                            -->.content:before {<br/><!--
+                            -->  display:block;<br/><!--
+                            -->  float:left;<br/><!--
+                            -->  width:240px;<br/><!--
+                            -->  height:280px;<br/><!--
+                            -->  background:url(...);<br/><!--
+                            -->}<!--
+                            --></code></pre>
+                            </div><br/>
+                            <div class='icon icon-user'></div>
+                        </div>
+                        <aside class='notes'>
+                            * Being able to write markup (once)
+                        </aside>
+                    </section>
+
+                    <section>
+                        <div class='comment bottom'>
+                            <div class='content'>
+                                <img src='resources/alice-nowrap.png' class='plain' alt='browser display' />
+                            </div><br/>
+                            <div class='icon icon-laptop'></div>
+                        </div>
+                        <aside class='notes'>
+                            * And have it reliably display to the end user
+                            * Across people, devices, browsers, future
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>Can I Use It?</h2>
+                    </section>
+
+                    <section>
+                        <h2>Media Queries</h2>
+                        <pre><code class='css'>@media screen and (max-width: 600px) { }</code></pre>
+                        <p>Browser Support:</p>
+                        <p class='fragment'><span class='green'>Very Good</span>. Just avoid IE &lt; 9.</p>
+                        <aside class='notes'>
+                            * CSS Media Queries
+                            * IE 9+, otherwise excellent
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>Gradients</h2>
+                        <pre><code class='css'>.gradient{<br/><!--
+                        -->  background-image:<br/><!--
+                        -->    linear-gradient(bottom, white, black);<br/><!--
+                        -->}</code></pre>
+                        <p>Browser Support:</p>
+                        <p class='fragment'><span class='orange'>Fair</span>. IE 10+, prefixed in S/CR, not yet in O Mobile</p>
+                        <aside class='notes'>
+                            * CSS Image Values and Replaced Content
+                            * IE 10+, Not yet in Opera Mini browser
+                            * Still prefixed in WebKit based browsers
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>Border Radius</h2>
+                        <pre><code class='css'>border-radius: 10px;</code></pre>
+                        <p>Browser Support:</p>
+                        <p class='fragment'><span class='green'>Very Good</span>. IE 9+, not yet on Opera Mobile.</p>
+                        <aside class='notes'>
+                            * CSS Backgrounds and Borders
+                            * IE 9+, not yet on mobile Opera
+                        </aside>
+                    </section>
+
+                    <section>
                         <h2>What happens when you don't have standards?</h2>
+                    </section>
+
+                    <section>
                         <!-- https://developer.mozilla.org/en-US/docs/DOM/element.addEventListener -->
                         <pre><code class='javascript'><!--
                         -->// CR 1+, FF 1+, IE 9+, O 7+, S 1+ <br/><!--
@@ -181,7 +257,7 @@
                         -->         clickHandler); <br/><!--
                         --></code></pre>
                         <p class='fragment'>9% of your audience uses IE &lt; 9</p>
-                        <!-- 8.75% from http://stats.wikimedia.org/archive/squid_reports/2013-02/SquidReportClients.htm -->
+                        <!-- 8.75% as of 2.2013 from http://stats.wikimedia.org/archive/squid_reports/2013-02/SquidReportClients.htm -->
                         <aside class='notes'>
                             * When implementations are not standardized, you may wind up
                             * with multiple different ways of doing the same thing.
@@ -242,7 +318,7 @@
                     </section>
 
                     <section>
-                        <h2>If standards take too long</h2>
+                        <h2>When standards take too long</h2>
                         <img class='plain' style='height:6em' src='resources/ghost.svg' />
                         <p class='fragment'>Quirks Mode</p>
                         <p class='fragment'>Legacy Browsers</p>
@@ -253,51 +329,12 @@
                             * Which nobody likes
                         </aside>
                     </section>
-
-                    <section>
-                        <h2>Standards are</h2>
-                    </section>
-
-                    <section>
-                        <div class='comment bottom'>
-                            <div class='content'><pre><code class='css'><!--
-                            -->.content:before {<br/><!--
-                            -->  display:block;<br/><!--
-                            -->  float:left;<br/><!--
-                            -->  width:240px;<br/><!--
-                            -->  height:280px;<br/><!--
-                            -->  background:url(...);<br/><!--
-                            -->}<!--
-                            --></code></pre>
-                            </div><br/>
-                            <div class='icon icon-user'></div>
-                        </div>
-                        <aside class='notes'>
-                            * Being able to write markup (once)
-                        </aside>
-                    </section>
-
-                    <section>
-                        <div class='comment bottom'>
-                            <div class='content'>
-                                <img src='resources/alice-nowrap.png' class='plain' alt='browser display' />
-                            </div><br/>
-                            <div class='icon icon-laptop'></div>
-                        </div>
-                        <aside class='notes'>
-                            * And have it reliably display to the end user
-                            * Across people, devices, browsers, future
-                        </aside>
-                    </section>
                 </section>
 
                 <section>
                     <section>
-                        <h2>Who is going to make it happen?</h2>
-                    </section>
-
-                    <section>
                         <h2>Standards Bodies</h2>
+                        <h3>Making Standards Happen</h3>
                     </section>
 
                     <section>
@@ -359,27 +396,9 @@
                         <h2>Line Based Placement</h2>
                         <p class='monospace'>{ grid-start: 3; grid-end: span 3; }</p>
                     </section>
-                </section>
-
-                <section>
-                    <section>
-                        <h2>What is a Standard?</h2>
-                        <ul>
-                            <li class='fragment'>Is it what is available in browsers?</li>
-                            <li class='fragment'>Is it what has a specification?</li>
-                        </ul>
-                        <aside class='notes'>
-                            * So let's revisit what exactly a standard is.
-                            * Where we push depends on how we define standards.
-                        </aside>
-                    </section>
 
                     <section>
-                        <h2>Where should we focus?</h2>
-                    </section>
-                    
-                    <section>
-                        <h2>Is it a Standard?</h2>
+                        <h2>Is it a W3C Recommendation?</h2>
                         <aside class='notes'>
                             * Because W3C recommendations can take time to finalize, features may standardize across browsers before the recommendation process has finished.
                             * Some features may even originate with the browsers, and eventually be standardized by the W3C.
@@ -389,19 +408,11 @@
                     <section>
                         <h2>Media Queries</h2>
                         <pre><code class='css'>@media screen and (max-width: 600px) { }</code></pre>
-                        <ul>
-                            <li>
-                                <p>Browser Support:</p>
-                                <p class='fragment'><span class='green'>Very Good</span>. Just avoid IE &lt; 9.</p>
-                            </li>
-                            <li>
-                                <p>W3C Status:</p>
-                                <div class='fragment rec'>
-                                    <p>Media Queries</p>
-                                    <p>(<span class='green'>Recommendation</span> 2012.06.19)
-                                </div>
-                            </li>
-                        </ul>
+                        <p>W3C Status:</p>
+                        <div class='fragment rec'>
+                            <p>Media Queries</p>
+                            <p>(<span class='green'>Recommendation</span> 2012.06.19)
+                        </div>
                         <aside class='notes'>
                             * CSS Media Queries
                             * IE 9+, otherwise excellent
@@ -414,18 +425,11 @@
                         -->  background-image:<br/><!--
                         -->    linear-gradient(bottom, white, black);<br/><!--
                         -->}</code></pre>
-                        <ul>
-                            <li>
-                                <p>Browser Support:</p>
-                                <p class='fragment'><span class='orange'>Good</span>. IE 10+, prefixed in S/CR, not yet in O Mobile</p>
-                            </li>
-                            <li>
-                                <p>W3C Status:</p>
-                                <p class='fragment cr'>
-                                    CSS Image Values and Replaced Content<br/>
-                                    (<span class='orange'>Candidate Recommendation</span> 2012.04.17)</p>
-                            </li>
-                        </ul>
+                        <p>W3C Status:</p>
+                        <div class='fragment cr'>
+                            <p>CSS Image Values and Replaced Content</p>
+                            <p>(<span class='orange'>Candidate Recommendation</span> 2012.04.17)</p>
+                        </div>
                         <aside class='notes'>
                             * CSS Image Values and Replaced Content
                             * IE 10+, Not yet in Opera Mini browser
@@ -436,24 +440,34 @@
                     <section>
                         <h2>Border Radius</h2>
                         <pre><code class='css'>border-radius: 10px;</code></pre>
-                        <ul>
-                            <li>
-                                <p>Browser Support:</p>
-                                <p class='fragment'><span class='green'>Very Good</span>. IE 9+, not yet on Opera Mobile.</p>
-                            </li>
-                            <li>
-                                <p>W3C Status:</p>
-                                <p class='fragment'>
-                                    CSS Backgrounds and Borders<br/>
-                                    (<span class='orange'>Candidate Recommendation</span> 2012.07.24)
-                                </p>
-                                </li>
-                        </ul>
+                        <p>W3C Status:</p>
+                        <div class='fragment'>
+                            <p>CSS Backgrounds and Borders</p>
+                            <p>(<span class='orange'>Candidate Recommendation</span> 2012.07.24)</p>
+                        </div>
                         <aside class='notes'>
                             * CSS Backgrounds and Borders
                             * IE 9+, not yet on mobile Opera
                         </aside>
                     </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Which definition of standard?</h2>
+                        <ul>
+                            <li class='fragment'>Is it what is available in browsers?</li>
+                            <li class='fragment'>Is it what has a specification?</li>
+                        </ul>
+                        <aside class='notes'>
+                            * So let's revisit what exactly a standard is.
+                            * Where we push depends on how we define standards.
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>Where should we focus?</h2>
+                    </section>                    
                 </section>
                 
 <!-- 3. History of CSS / W3C -->
@@ -471,15 +485,15 @@
 
                     <section>
                         <ul>
-                            <li>1990 First web page &amp; web browser</li>
-                            <li>1994 The W3C is formed to help shape standards on the web</li>
-                            <li>1995 CSS1 First public working draft</li>
-                            <li>1996 CSS1 Recommendation</li>
-                            <li>1997 CSS2 First public working draft</li>
-                            <li>1998 CSS2 Recommendation</li>
-                            <li>2000 CSS3 Roadmap</li>
-                            <li>2002 CSS2 Revision 1 Working draft</li>
-                            <li>2011 CSS2 Revision 1 Recommendation</li>
+                            <li class='fragment'>1990 First web page &amp; web browser</li>
+                            <li class='fragment'>1994 The W3C is formed to help shape standards on the web</li>
+                            <li class='fragment'>1995 CSS1 First public working draft</li>
+                            <li class='fragment'>1996 CSS1 Recommendation</li>
+                            <li class='fragment'>1997 CSS2 First public working draft</li>
+                            <li class='fragment'>1998 CSS2 Recommendation</li>
+                            <li class='fragment'>2000 CSS3 Roadmap</li>
+                            <li class='fragment'>2002 CSS2 Revision 1 Working draft</li>
+                            <li class='fragment'>2011 CSS2 Revision 1 Recommendation</li>
                         </ul>
                         <!--(a data visualization here would be super cool)-->
                         <aside class='notes'>
@@ -518,15 +532,6 @@
                     </section>
 
                     <section>
-                        <h2>The W3C helps guide this process</h2>
-                        <aside class='notes'>
-                            * The W3C is a body that helps guide this
-                            * With the CR stage, it allows an opportunity for browsers to grow alongside specifications.
-                            * It has the odd role of both documenting behaviors today, and brainstorming ideas for tomorrow.
-                        </aside>
-                    </section>
-
-                    <section>
                         <h2>If specification outpaces implementation</h2>
                         <div class='fragment'>
                             <img class='plain' src='resources/ghost.svg' style='height:5em' />
@@ -541,20 +546,43 @@
                             <h3>Filters</h3>
                         </div>
                     </section>
+
+                    <section>
+                        <h2>The W3C helps guide this process</h2>
+                        <aside class='notes'>
+                            * The W3C is a body that helps guide this
+                            * With the CR stage, it allows an opportunity for browsers to grow alongside specifications.
+                            * It has the odd role of both documenting behaviors today, and brainstorming ideas for tomorrow.
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>Standards are continuously evolving</h2>
+                        <aside class='notes'>
+                            * Just because it's not a recommendation yet, or even a specification, doesn't mean there
+                            * isn't something out there on the web.
+                            * It's all about building what you need.
+                            * And as features standardize, what's really important
+                        </aside>
+                    </section>
                 </section>
 
 <!-- 5. Regions and Exclusions - History & Overview -->
                 <section>
                     <section>
-                        <h2>Building a Modern Standard</h2>
+                        <h2>Where do standards come from?</h2>
+                        <p>Surveying the present and think-tanking the future</p>
                         <aside class='notes'>
-                            * How do you go about building a modern standard?
-                            * You need to do some thinking about what people want on the web.
+                            * Where exactly do these standards come from?
+                            * As I mentioned before, some standards consolidate existing behavior on the web.
+                            * Others try to anticipate what would be helpful to content authors.
                         </aside>
                     </section>
                     <section>
                         <h2>Text Layout</h2>
                         <aside class='notes'>
+                            * For example, we can look at text layout.
+                            * The web has a lot of text that needs layout.
                             * One of the areas Adobe thought it could offer some improvements was in text layout
                         </aside>
                     </section>
@@ -680,14 +708,15 @@
                 </section>
 
                 <section>
-                    <section>
-                        <h2>Regions and Exclusions</h2>
-                        <h3>Extending the language</h3>
-                        <aside class='notes'>
-                            * We would like to extend the language, so that some complex layouts
-                            * Are easier to describe
-                        </aside>
-                    </section>
+                    <h2>Regions and Exclusions</h2>
+                    <h3>Extending the language</h3>
+                    <aside class='notes'>
+                        * We would like to extend the language, so that some complex layouts
+                        * Are easier to describe
+                    </aside>
+                </section>
+            
+                <section>
                     <section>
                         <h2>Regions</h2>
                         <aside class='notes'>
@@ -763,10 +792,15 @@
 
 <!-- 5. Speed up standards with modules -->
                 <section>
+                    <h2>Moving these standards forward, faster</h2>
+                </section>
+
+                <section>
                     <section>
                         <h2>Faster Specifications</h2>
                         <aside class='notes'>
                             * So how can we make sure standards move forward faster?
+                            * At the specification level?
                         </aside>
                     </section>
 
@@ -1025,6 +1059,9 @@
 <!-- 9. Polyfills -->
                 <section>
                     <section>
+                        <h2>Faster functionality</h2>
+                    </section>
+                    <section>
                         <h2>Polyfills</h2>
                         <h3>fake the functionality of the future, today</h3>
                         <aside class='notes'>
@@ -1114,6 +1151,11 @@
                             * And as features standardize, what's really important
                         </aside>
                     </section>
+
+                    <section>
+                        <h2>Standards are Tools</h2>
+                    </section>
+
                     <section>
                         <div class='comment'>
                             <h2 class='icon icon-user'></h2>
@@ -1134,22 +1176,27 @@
                             * And have the browser translate it into what you want presented to the user.
                         </aside>
                     </section>
+
+                    <section>
+                        <h2>Help get them where they need to go</h2>
+                        <ul>
+                            <li>Grab a test version of your browser</li>
+                            <li>Test drive a new feature</li>
+                            <li>Write up a bug</li>
+                            <li>Give feedback on a spec</li>
+                        </ul>
+                    </section>
                 </section>
 
 <!-- 10. Living Standards -->
                 <section>
-                    <section>
-                        <h2>Standards bodies help guide the web forward</h2>
-                    </section>
-                    <section>
-                        <h2>But, the web is constantly changing</h2>
-                    </section>
-                    <section>
-                        <h2>Your toolbox is constantly changing</h2>
-                    </section>
-                    <section>
-                        <h2>But you can also help shape it</h2>
-                    </section>
+                    <h1>The End</h1>
+                    <p>
+                        <i class='icon-github-alt'></i><a href='http://github.com/betravis'>betravis</a> / <i class='icon-twitter'></i><a href="http://twitter.com/bear_travis">bear_travis</a>
+                    </p>
+                    <p>
+                        <small>built with <a href='http://lab.hakim.se/reveal-js/'>reveal.js</a>, <a href='http://fortawesome.github.com/Font-Awesome/'>font awesome</a>, and images from the noun project by <a href='http://thenounproject.com/DmitryBaranovskiy'>Dmitry Baranovskiy</a></small>
+                    </p>
                 </section>
                 
             </div>
